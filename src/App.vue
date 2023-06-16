@@ -1,16 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <TopContent />
+    <slideShow />
+    <router-view></router-view>
+    <FootContent />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//Import HeaderandNav
+import TopContent from './components/pages/topContent.vue';
+import FootContent from './components/pages/footContent.vue';
+import SlideShow from './components/pages/slideShow.vue';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    // HelloWorld,
+    TopContent,
+    FootContent,
+    SlideShow,
+    
+}
 }
 </script>
 

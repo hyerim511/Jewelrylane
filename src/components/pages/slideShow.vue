@@ -29,9 +29,9 @@ export default {
     },
     setup() {
         const slideImg = ref([
-            {name: 'Pic1', File: 'https://images.pexels.com/photos/1449657/pexels-photo-1449657.jpeg?auto=compress&cs=tinysrgb&w=600'},
-            {name: 'Pic2', File: 'https://images.pexels.com/photos/265791/pexels-photo-265791.jpeg?auto=compress&cs=tinysrgb&w=600'},
-            {name: 'Pic3', File: 'https://images.pexels.com/photos/5705495/pexels-photo-5705495.jpeg?auto=compress&cs=tinysrgb&w=600'}
+            {name: 'Pic1', File: 'https://images.pexels.com/photos/9430992/pexels-photo-9430992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'},
+            {name: 'Pic2', File: 'https://images.pexels.com/photos/9431905/pexels-photo-9431905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'},
+            {name: 'Pic3', File: 'https://images.pexels.com/photos/9430429/pexels-photo-9430429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
 
         ]);
 
@@ -44,11 +44,10 @@ export default {
 </script>
 
 <style scoped>
-/* scoped = for use only in this page */
+/* scoped = for use css only in this page */
 
     img {
-        border-radius: 10px;
         width: 100%;
-        height: 50vh;
+        height: 80vh;
     }
 </style>

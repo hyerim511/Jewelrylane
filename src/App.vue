@@ -26,8 +26,7 @@
     <section class="content">
       <a href="#">
         <figure v-for="jewelry in catalog" :key="jewelry.id">
-          <img alt="Vue logo" src="./assets/img/ring.jpeg">
-          <!-- {{ jewelry.image }} -->
+          <img :alt="jewelry.title" :src="jewelry.image">
           <figcaption>
             <ul>
               <li>
@@ -65,7 +64,7 @@ export default {
     return {
       catalog: [],
       catalogApi:
-        "http://localhost/jewelrylane/final-jewelrylane/api/jewelryApi/jewelry.php",
+        "http://localhost/final-jewelrylane/api/jewelryApi/jewelry.php",
     };
   },
   methods: {

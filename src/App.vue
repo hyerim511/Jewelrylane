@@ -4,6 +4,7 @@
     <slideShow />
     <router-view></router-view>
     <FootContent />
+    <aboutPage />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import TopContent from './components/pages/topContent.vue';
 import FootContent from './components/pages/footContent.vue';
 import SlideShow from './components/pages/slideShow.vue';
+import AboutPage from './components/aboutPage.vue';
 
 
 export default {
@@ -21,6 +23,7 @@ export default {
     TopContent,
     FootContent,
     SlideShow,
+    AboutPage,
     
 }
 }

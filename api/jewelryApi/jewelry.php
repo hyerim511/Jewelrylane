@@ -15,9 +15,9 @@ $method = $_SERVER["REQUEST_METHOD"];
 switch($method) {
     case "GET" :
         echo json_encode(
-            JewelryConverter::convertToStd(JewelryDAO::getAllEmployee())); 
+            JewelryConverter::convertToStd(JewelryDAO::getAllJewelry())); 
     break;
     default:
         echo json_encode(
-            JewelryConverter::convertToStd(JewelryDAO::getAllEmployee())); 
+            JewelryConverter::convertToStd(JewelryDAO::getAllJewelry())); 
 }

@@ -37,6 +37,8 @@ export default {
 
         //return the data that have set in setup
         return {
+            Pagination,
+            Navigation,
             slideImg
         };
     },

@@ -10,10 +10,10 @@
 
 <script>
 //Import HeaderandNav
-import TopContent from './components/pages/topContent.vue';
-import FootContent from './components/pages/footContent.vue';
-import SlideShow from './components/pages/slideShow.vue';
-import AboutPage from './components/aboutPage.vue';
+import TopContent from './components/layout/topContent.vue';
+import FootContent from './components/layout/footContent.vue';
+import SlideShow from './components/layout/slideShow.vue';
+import AboutPage from './components/pages/aboutPage.vue';
 
 
 export default {

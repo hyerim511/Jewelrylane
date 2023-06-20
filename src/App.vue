@@ -1,23 +1,23 @@
 <template>
   <div>
-    <!-- <TopContent />
+    <TopContent />
     <router-view></router-view>
-    <FootContent /> -->
+    <FootContent />
     <product-details />
   </div>
 </template>
 
 <script>
+import TopContent from './components/layout/topContent.vue';
 import ProductDetails from './components/pages/productDetails.vue'
-// import TopContent from './components/layout/topContent.vue';
-// import FootContent from './components/layout/footContent.vue';
+import FootContent from './components/layout/footContent.vue';
 
 export default {
   name: 'App',
   components: {
-    ProductDetails
-    // TopContent,
-    // FootContent
+    ProductDetails,
+    TopContent,
+    FootContent
   }
 }
 </script>

@@ -3,6 +3,7 @@
         <section class="container">
             <div class="row">
                 <div class="col-6">
+                    <!-- <img :alt=jewelry.title :src=jewelry.image> -->
                     <img src="https://img.etimg.com/photo/msid-97025114/jewels-galaxy-love-adjustable-ring.jpg">
                 </div>
                 <div class="col-6">
@@ -43,6 +44,7 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                     <div v-for="n in 4" :key="n" class="mx-2">
+                        <!-- <img :alt=jewelry.title :src=jewelry.image> -->
                         <img style="width: 300px;" src="https://img.etimg.com/photo/msid-97025114/jewels-galaxy-love-adjustable-ring.jpg">
                     </div>
                 </div>

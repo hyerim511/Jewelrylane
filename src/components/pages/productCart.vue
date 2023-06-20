@@ -1,24 +1,48 @@
 <template>
     <div>
-        <form>
+        <section>
+            <article>
+                <figure>
+                    <img src="" alt="">
+                    <figcaption>
+                        <section>
+                            <h5>
+                                {{ jewelry.category }}
+                            </h5>
+                            <h3>
+                                {{ jewelry.name }}
+                            </h3>
+                        </section>
+                        <section>
+                            <aside>
+                                <div>
+                                    <h4>
+                                        Quantity
+                                    </h4>
+                                    
+                                </div>
+                            </aside>
+                            <aside>
+                                {{ jewelry.price }}
+                            </aside>
+                        </section>
+                    </figcaption>
+                </figure>
+            </article>
+            <article>
 
-        </form>
+            </article>
+        </section>
         <section>
             <article>
                 <aside>
                     <label for="subtotal">subtotal</label>
-                    
+                    <div>
+                        {{ sub.price }}
+                    </div>
                 </aside>
                 <aside>
-
-                </aside>
-                <aside>
-
-                </aside>
-                <aside>
-                    <button>
-
-                    </button>
+                    <button type="submit">Check out</button>
                 </aside>
             </article>
         </section>

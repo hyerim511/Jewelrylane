@@ -1,31 +1,24 @@
 <template>
   <div>
-    <TopContent />
-    <slideShow />
+    <!-- <TopContent />
     <router-view></router-view>
-    <FootContent />
-    <aboutPage />
+    <FootContent /> -->
+    <product-details />
   </div>
 </template>
 
 <script>
-//Import HeaderandNav
-import TopContent from './components/layout/topContent.vue';
-import FootContent from './components/layout/footContent.vue';
-import SlideShow from './components/layout/slideShow.vue';
-import AboutPage from './components/pages/aboutPage.vue';
-
+import ProductDetails from './components/pages/productDetails.vue'
+// import TopContent from './components/layout/topContent.vue';
+// import FootContent from './components/layout/footContent.vue';
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
-    TopContent,
-    FootContent,
-    SlideShow,
-    AboutPage,
-    
-}
+    ProductDetails
+    // TopContent,
+    // FootContent
+  }
 }
 </script>
 

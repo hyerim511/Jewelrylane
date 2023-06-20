@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="container p-2">
         <h2>
             About
         </h2>
         <figure class="about-figure">
-            <img src="https://images.pexels.com/photos/9430992/pexels-photo-9430992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="About Us">
+            <img class="header-image" src="https://images.pexels.com/photos/9430992/pexels-photo-9430992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="About Us">
             <figcaption>
                 <section class="about-left">
                     <p>
@@ -18,16 +18,16 @@
                         <aside>
                             <h5>Address:</h5>
                             <address>
-                                889 W Pender St #200, Vancouver, BC V6C 3B2
+                                {{ detail.address }}
                             </address>
                         </aside>
                         <aside>
                             <h5>Email:</h5>
-                            <a href="mailto:readviceinfo@mail.com">readviceinfo@mail.com</a>
+                            <a href="mailto:readviceinfo@mail.com">{{ detail.email }}</a>
                         </aside>
                         <aside>
                             <h5>Phone:</h5>
-                            <a href="tel:+16040000000">+1-604-000-0000</a>
+                            <a href="tel:+16040000000">{{ detail.phone }}</a>
                         </aside>
                     </article>
                 </section>
@@ -37,11 +37,26 @@
 </template>
 
 <script>
+    import { ref } from 'vue'
     export default {
-        name: 'aboutPage'
+        name: 'aboutPage',
+        setup () {
+            const detail = ref({
+                address: '889 W Pender St #200, Vancouver, BC V6C 3B2',
+                email: 'readviceinfo@mail.com',
+                phone: '+1-604-000-0000'
+            })
+
+            return {
+                detail
+            }
+        }
     }
 </script>
 
 <style scoped>
-
+    .header-image {
+        width: 100%;
+        height: 50vh;
+    }
 </style>

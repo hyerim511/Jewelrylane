@@ -3,8 +3,8 @@
         <section class="container">
             <div class="row">
                 <div class="col-6">
-                    <!-- <img :alt=jewelry.title :src=jewelry.image> -->
-                    <img src="https://img.etimg.com/photo/msid-97025114/jewels-galaxy-love-adjustable-ring.jpg">
+                    <img :alt=jewelry.title :src=jewelry.image>
+                    <!-- <img src="https://img.etimg.com/photo/msid-97025114/jewels-galaxy-love-adjustable-ring.jpg"> -->
                 </div>
                 <div class="col-6">
                     <div class="catelog-tag">
@@ -55,7 +55,27 @@
 
 <script>
     export default {
-        
+        // productDetails
+        // data() {
+        //     return {
+        //         catalog: [],
+        //         catalogApi:
+        //         "http://localhost/final-jewelrylane/api/jewelryApi/jewelry.php",
+        //     };
+        // },
+        // methods: {
+        //     async getJewelry() {
+        //         try {
+        //             let response = await fetch(this.catalogApi);
+        //             this.catalog = await response.json();
+        //         } catch (error) {
+        //             console.log(error);
+        //         }
+        //     },
+        // },
+        // created() {
+        //     this.getJewelry();
+        // },
     }
 </script>
 

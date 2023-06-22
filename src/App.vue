@@ -2,8 +2,8 @@
   <div>
     <TopContent />
     <router-view></router-view>
-    <FootContent />
     <product-details />
+    <FootContent />
   </div>
 </template>
 
@@ -15,8 +15,8 @@ import FootContent from './components/layout/footContent.vue';
 export default {
   name: 'App',
   components: {
-    ProductDetails,
     TopContent,
+    ProductDetails,
     FootContent
   }
 }

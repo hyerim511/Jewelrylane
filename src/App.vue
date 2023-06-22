@@ -45,16 +45,28 @@
       <a href="#">3</a>
     </section>
   </main> -->
-  <MainContent/>
+  <div>
+    <MainContent/>
+    <TopContent />
+    <router-view></router-view>
+    <FootContent />
+    <product-details />
+  </div>
 </template>
 
 <script>
 import MainContent from './components/MainContent.vue'
+import TopContent from './components/layout/topContent.vue';
+import ProductDetails from './components/pages/productDetails.vue'
+import FootContent from './components/layout/footContent.vue';
 
 export default {
   name: "App",
   components: {
-    MainContent
+    MainContent,
+    ProductDetails,
+    TopContent,
+    FootContent
   },
   data() {
     return {
@@ -75,7 +87,7 @@ export default {
   },
   created() {
     this.getJewelry();
-  },
+  }
 };
 </script>
 

@@ -1,7 +1,5 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <main>
+  <!-- <main>
     <section class="filter">
       <article class="tags">
         <a href="#">All</a>
@@ -46,20 +44,18 @@
       <a href="#">2</a>
       <a href="#">3</a>
     </section>
-  </main>
-  <!-- <MainContent/> -->
+  </main> -->
+  <MainContent/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import MainContent from './components/MainContent.vue'
+import MainContent from './components/MainContent.vue'
 
 export default {
   name: "App",
-  // components: {
-  //   // HelloWorld
-  //   MainContent
-  // },
+  components: {
+    MainContent
+  },
   data() {
     return {
       catalog: [],

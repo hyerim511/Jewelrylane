@@ -1,42 +1,35 @@
 <template>
-    <div>
-        <section class="container">
-            <div class="row">
-                <div class="col-6">
-                    <img :alt="detailItem.title" :src="detailItem.image" />
-                </div>
-                <div class="col-6">
-                    <div class="catelog-tag">
-                        {{ detailItem.category }}
-                    </div>
-                    <div class="text-left">
-                        <h2>
-                            {{ detailItem.title }}
-                        </h2>
-                    </div>
-                    <div class="text-left">
-                        <span>{{ detailItem.price }}</span>
-                    </div>
-                    <div class="d-flex justify-content-left my-4">
-                        <span class="pr-2">Quantity</span>
-                        <div>
-                            <button class="btn-minus" @click="qty--">-</button>
-                        </div>
-                        <div class="w-full">
-                            <input type="number" class="input-qty w-full text-center" v-model="qty">
-                        </div>
-                        <div>
-                            <button class="btn-plus" @click="qty++">+</button>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="btn-add-to-cart">Add to cart</button>
-                    </div>
-                </div>
+    <section class="product-detail">
+        <figure>
+            <div class="thumb">
+                <img :alt="detailItem.title" :src="detailItem.image" />
             </div>
+            <figcaption>
+                <div>
+                    <span class="label">{{ detailItem.category }}</span>
+                    <h2>{{ detailItem.title }}</h2>
+                    <p>{{ detailItem.price }}</p>
+                </div>
+                <form>
+                    <label for="qty">Quantity</label>
+                    <div class="quantity">
+                        <a class="btn-minus" @click="qty--">
+                            <i class="fa-solid fa-minus"></i>
+                        </a>
+                        <input type="number" class="input-qty w-full text-center" id="qty" v-model="qty">
+                        <a class="btn-plus" @click="qty++">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                    </div>
+                    <button type="submit">Add to cart</button>
+                </form>
+            </figcaption>
+        </figure>
+            
+            <!-- You may also like -->
             <div class="mt-4">
                 <div class="text-left">
-                    <span>You may also like</span>
+                    <p>You may also like</p>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                     <div v-for="n in 4" :key="n" class="mx-2">
@@ -46,7 +39,6 @@
                 </div>
             </div>
         </section>
-    </div>
 </template>
 
 <script>
@@ -65,46 +57,3 @@
         }
     }
 </script>
-
-<style scoped>
-.text-left {
-    text-align: left;
-}
-.pr-2 {
-    padding-right: 5px;
-}
-.w-full {
-    width: 100%;
-}
-.catelog-tag {
-    background-color: grey;
-    color: white;
-    /* padding: 1px; */
-    font-size: 12px;
-    width: 50px;
-    border-radius: 5px;
-}
-.btn-minus {
-    border: 1px solid grey;
-    border-right: none;
-    background-color: white;
-}
-.btn-plus {
-    border: 1px solid grey;
-    border-left: none;
-    background-color: white;
-}
-.input-qty {
-    border: 1px solid lightgray;
-    border-left: none;
-    border-right: none;
-}
-.btn-add-to-cart {
-    width: 100%;
-    padding: 10px;
-    border-radius: 25px;
-    background-color: lightgrey;
-    border: none;
-    color: white;
-}
-</style>

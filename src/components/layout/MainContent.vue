@@ -5,20 +5,20 @@
     <main v-else>
         <SlideShow />
         <section class="filter">
-            <article class="tags">
-                <a href="#">All</a>
-                <a href="#">Rings</a>
-                <a href="#">Bracelets</a>
-                <a href="#">Necklaces</a>
-                <a href="#">Earrings</a>
-            </article>
-            <form class="search">
-                <input type="text" name="search" id="search">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-            <article class="price">
+            <ul>
+                <li class="active"><a href="#">All</a></li>
+                <li><a href="#">Rings</a></li>
+                <li><a href="#">Bracelets</a></li>
+                <li><a href="#">Necklaces</a></li>
+                <li><a href="#">Earrings</a></li>
+            </ul>
+            <article>
+                <form>
+                  <input type="search" name="search" id="search">
+                  <button type="submit">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
                 <a href="#">
                     Price
                     <i class="fa-solid fa-arrow-down-short-wide"></i>
@@ -27,22 +27,14 @@
         </section>
         <section class="content">
           <figure v-for="jewelry in catalog" :key="jewelry.id" @click="getItem(jewelry)">
-            <!-- <router-link :to="`/productDetails/${jewelry.id}`"> -->
-            <img :src= "jewelry.image" style="width: 300px;"/>
+            <div class="thumb">
+              <img :src= "jewelry.image">
+            </div>
               <figcaption>
-                <ul>
-                  <li>
-                    {{jewelry.category}}
-                  </li>
-                  <li>
-                    {{jewelry.title}}
-                  </li>
-                  <li>
-                    $ {{jewelry.price}}
-                  </li>
-                </ul>
+                <span class="label">{{jewelry.category}}</span>
+                <h4>{{jewelry.title}}</h4>
+                <p>$ {{jewelry.price}}</p>
               </figcaption>
-              <!-- </router-link> -->
           </figure>
         </section>
         <section class="pages">

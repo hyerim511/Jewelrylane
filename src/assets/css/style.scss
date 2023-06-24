@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Raleway:wght@400;600;700&display=swap');
+
+// MIXIN
+
+@mixin FlexRow($colGap: 0vh) {
+    display: flex;
+    column-gap: $colGap;
+}
+ 
+@mixin FlexColumn($rowGap: 0vh) {
+    display: flex;
+    flex-direction: column;
+    row-gap: $rowGap;
+}
+
+@mixin FlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$fontTitle: 'Julius Sans One', sans-serif;
+$fontBody: 'Raleway', sans-serif;
+
+$colorWhite: #FCFAF9;
+$colorBg: #F5F1EE;
+$colorThumb: #EDE8E1;
+$colorLabel: #C8BDAB;
+$colorDeep: #726B64;
+$colorBlack: #1F1B18;
+
+
+// COMMON VALUE
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $fontBody;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: $colorBg;
+    color: $colorBlack;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+input, textarea, button {
+    background-color: transparent;
+    border: 0 none;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+.thumb {
+    @include FlexCenter();
+    background-color: $colorThumb;
+    border: 1px solid $colorLabel;
+}
+
+.label {
+    background-color: $colorLabel;
+    width: fit-content;
+    padding: .5%;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $colorBg;
+}
+
+
+// HEADER
+
+.header-tab {
+    @include FlexRow();
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 4%;
+
+    ul {
+        @include FlexRow(2vw);
+        width: 20%;
+    }
+
+    ul:last-child {
+        justify-content: right
+    }
+
+    li {
+        @include FlexRow();
+    }
+
+    h1 {
+        font-family: $fontTitle;
+        letter-spacing: 2px;
+    }
+}
+
+// FOOTER
+
+footer {
+    @include FlexRow();
+    justify-content: space-between;
+    padding: 2% 3%;
+    background-color: $colorBlack;
+    color: $colorDeep;
+
+    aside {
+        @include FlexRow(2vw);
+    }
+}
+
+
+// MAIN LIST
+
+main {
+    @include FlexColumn(5vh);
+}
+
+.filter {
+    @include FlexRow();
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+
+    ul {
+        @include FlexRow(2vw);
+    }
+
+    li {
+        @include FlexRow();
+        width: 6vw;
+
+        a {
+            padding: 10%;
+        }
+    }
+
+    .active {
+        border-bottom: 1px solid $colorDeep;
+    }
+
+    article {
+        @include FlexRow(3vw);
+
+        form {
+            border-bottom: 1px solid $colorLabel;
+        }
+
+        input {
+            width: 240px;
+            padding: 2%;
+        }
+
+    }
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 4%;
+    gap: 4vw;
+
+    figure {
+        @include FlexColumn(2vh);
+        width: 20vw;
+    }
+
+    figure:hover {
+        outline: 20px solid $colorWhite;
+        background: #FCFAF9;
+        box-shadow: 0px 10px 20px -4px rgba(0, 0, 0, 0.5);
+
+        .thumb {
+            background-color: transparent;
+            border: 0;
+        }
+
+        img {
+            width: 12vw;
+            transform: rotate(15deg);
+        }
+    }
+
+    img {
+        width: 9vw;
+        height: 20vw;
+    }
+
+    figcaption {
+        @include FlexColumn(1vh);
+
+        h4 {
+            font-size: 18px;
+        }
+    }
+}
+
+.pages {
+    @include FlexRow(3vw);
+    justify-content: center;
+    padding: 5%;
+}
+
+
+// PRODUCT DETAIL
+
+.product-detail {
+    padding: 5%;
+
+    figure {
+        @include FlexRow();
+        justify-content: space-around;
+    }
+
+    .thumb {
+        width: 50%;
+    }
+
+    img {
+        width: 40%;
+        height: 60vh;
+    }
+
+    figcaption {
+        @include FlexColumn();
+        width: 40%;
+        padding: 4% 0;
+        justify-content: space-between;
+
+        &>div {
+            @include FlexColumn(2vh);
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            row-gap: 2vh;
+        }
+
+        button, input {
+            padding: 2%;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        .quantity {
+            @include FlexRow();
+            width: 70%;
+            justify-content: right;
+            background-color: $colorWhite;
+            border: 1px solid $colorLabel;
+
+            a {
+                width: 40px;
+                @include FlexCenter();
+                font-size: 11px;
+                color: $colorDeep;
+            }
+
+            input {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        button {
+            width: 100%;
+            background-color: $colorDeep;
+            color: $colorWhite;
+            border-radius: 10vw;
+            font-weight: 600;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+}

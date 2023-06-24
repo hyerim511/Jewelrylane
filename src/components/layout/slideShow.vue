@@ -29,10 +29,9 @@ export default {
     },
     setup() {
         const slideImg = ref([
-            {name: 'Pic1', File: 'https://images.pexels.com/photos/9430992/pexels-photo-9430992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'},
-            {name: 'Pic2', File: 'https://images.pexels.com/photos/9431905/pexels-photo-9431905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'},
-            {name: 'Pic3', File: 'https://images.pexels.com/photos/9430429/pexels-photo-9430429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
-
+            {name: 'Pic1', File: '/img/hero1.5b9a98d5.png'},
+            {name: 'Pic2', File: '/img/hero2.d324d02c.png'},
+            {name: 'Pic3', File: '/img/hero3.63da2135.png'}
         ]);
 
         //return the data that have set in setup
@@ -45,11 +44,3 @@ export default {
 };
 </script>
 
-<style scoped>
-/* scoped = for use css only in this page */
-
-    img {
-        width: 100%;
-        height: 80vh;
-    }
-</style>

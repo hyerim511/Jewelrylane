@@ -1,6 +1,6 @@
 <template>
     <section v-if="display">
-    <productDetails :detailItem="this.itemObj"/>
+    <ProductDetails :detailItem="this.itemObj"/>
     </section>
     <main v-else>
         <SlideShow />
@@ -56,9 +56,8 @@
 <script>
 // import {ref} from 'vue';
   import SlideShow from './SlideShow.vue';
-  import productDetails from './ProductDetails.vue';
+  import ProductDetails from 'ProductDetails.vue';
   export default {
-  // components: { SlideShow },
       name: 'MainContent',
 
       props:['catalog'],
@@ -83,7 +82,7 @@
         }
       },
       components: {
-        productDetails,
+        ProductDetails,
         SlideShow,
       }
   }

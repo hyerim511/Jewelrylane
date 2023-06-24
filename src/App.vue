@@ -8,7 +8,7 @@
 
 <script>
 import TopContent from './components/layout/TopContent.vue';
-import FootContent from './components/layout/FootContent.vue';
+import FootContent from 'components/layout/FootContent.vue';
 
 export default {
   name: "App",

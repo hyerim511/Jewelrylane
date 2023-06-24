@@ -56,7 +56,7 @@
 <script>
 // import {ref} from 'vue';
   import SlideShow from './SlideShow.vue';
-  import ProductDetails from 'ProductDetails.vue';
+  import ProductDetails from './ProductDetails.vue';
   export default {
       name: 'MainContent',
 

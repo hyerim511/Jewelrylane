@@ -52,7 +52,7 @@
 <script>
     import {ref} from 'vue';
     export default {
-        name: 'productDetails',
+        name: 'ProductDetails',
         setup(){
             // for button+,-
             const qty = ref(0)

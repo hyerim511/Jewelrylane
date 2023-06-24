@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'footContent'
+    name: 'FootContent'
 }
 </script>
 

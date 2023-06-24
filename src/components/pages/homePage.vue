@@ -1,17 +1,14 @@
 <template>
     <div>
-        <SlideShow />
         <MainContent :catalog="catalog"/>
     </div>
 </template>
 
 <script>
-import SlideShow from '../layout/slideShow.vue';
 import MainContent from '../layout/MainContent.vue'
     export default {
         name: 'HomePage',
         components: {
-            SlideShow, 
             MainContent,
         },
         data() {
@@ -36,7 +33,3 @@ import MainContent from '../layout/MainContent.vue'
         }
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

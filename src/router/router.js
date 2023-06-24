@@ -1,6 +1,5 @@
-import HomePage from '../components/pages/homePage.vue'
-import AboutPage from '../components/pages/aboutPage.vue'
-import ProductDetails from '../components/pages/productDetails.vue'
+import HomePage from '../components/pages/HomePage.vue'
+import AboutPage from '../components/pages/AboutPage.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -13,13 +12,7 @@ const routes = [
         path: "/about",
         name: "AboutPage",
         component: AboutPage
-    },
-    {
-        path: '/productDetails/:id',
-        name: 'ProductDetails',
-        component: ProductDetails
     }
-    
 ];
 
 const router = createRouter({

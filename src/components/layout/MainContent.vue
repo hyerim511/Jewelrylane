@@ -1,5 +1,9 @@
 <template>
-    <main>
+    <section v-if="display">
+    <productDetails :detailItem="this.itemObj"/>
+    </section>
+    <main v-else>
+        <SlideShow />
         <section class="filter">
             <article class="tags">
                 <a href="#">All</a>
@@ -22,8 +26,8 @@
             </article>
         </section>
         <section class="content">
-          <figure v-for="jewelry in catalog" :key="jewelry.id">
-            <router-link :to="`/productDetails/${jewelry.id}`">
+          <figure v-for="jewelry in catalog" :key="jewelry.id" @click="getItem(jewelry)">
+            <!-- <router-link :to="`/productDetails/${jewelry.id}`"> -->
             <img :src= "jewelry.image" style="width: 300px;"/>
               <figcaption>
                 <ul>
@@ -38,7 +42,7 @@
                   </li>
                 </ul>
               </figcaption>
-              </router-link>
+              <!-- </router-link> -->
           </figure>
         </section>
         <section class="pages">
@@ -51,12 +55,19 @@
 
 <script>
 // import {ref} from 'vue';
-  // import SlideShow from './slideShow.vue';
+  import SlideShow from './SlideShow.vue';
+  import productDetails from './ProductDetails.vue';
   export default {
   // components: { SlideShow },
       name: 'MainContent',
 
       props:['catalog'],
+      data() {
+        return {
+          itemObj: {},
+          display: false
+        }
+      },
       setup(props){
         console.log(props.catalog);
         // const onClickProduct=(id)=>{
@@ -64,6 +75,16 @@
         //   this.$router.push(`/productDetails/${id}`)
         // }
         // return {onClickProduct}
+      },
+      methods: {
+        getItem(item) {
+          this.itemObj = item;
+          this.display = true;
+        }
+      },
+      components: {
+        productDetails,
+        SlideShow,
       }
   }
 </script>

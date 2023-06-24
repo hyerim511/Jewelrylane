@@ -3,21 +3,19 @@
         <section class="container">
             <div class="row">
                 <div class="col-6">
-                    <!-- <img :alt="jewelry.title" :src="jewelry.image" /> -->
-                    <!-- <img src="https://img.etimg.com/photo/msid-97025114/jewels-galaxy-love-adjustable-ring.jpg"> -->
+                    <img :alt="detailItem.title" :src="detailItem.image" />
                 </div>
                 <div class="col-6">
                     <div class="catelog-tag">
-                        <!-- {{ jewelry.category }} -->
+                        {{ detailItem.category }}
                     </div>
                     <div class="text-left">
                         <h2>
-                            <!-- {{ jewelry.title }} -->
+                            {{ detailItem.title }}
                         </h2>
                     </div>
                     <div class="text-left">
-                        <span>$ 99.99</span>
-                        <!-- {{ jewelry.price }} -->
+                        <span>{{ detailItem.price }}</span>
                     </div>
                     <div class="d-flex justify-content-left my-4">
                         <span class="pr-2">Quantity</span>
@@ -34,12 +32,6 @@
                     <div>
                         <button class="btn-add-to-cart">Add to cart</button>
                     </div>
-                    <!-- <div class="text-left">
-                        <span>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.
-                            {{ jewelry. }}
-                        </span>
-                    </div> -->
                 </div>
             </div>
             <div class="mt-4">
@@ -61,34 +53,16 @@
     import {ref} from 'vue';
     export default {
         name: 'productDetails',
-        // data() {
-        //     return {
-        //         catalog: [],
-        //         catalogApi:
-        //         "http://localhost/final-jewelrylane/api/jewelryApi/jewelry.php",
-        //     };
-        // },
-        // methods: {
-        //     async getJewelry() {
-        //         try {
-        //             let response = await fetch(this.catalogApi);
-        //             this.catalog = await response.json();
-        //         } catch (error) {
-        //             console.log(error);
-        //         }
-        //     },
-        // },
-        // created() {
-        //     this.getJewelry();
-        // },
         setup(){
             // for button+,-
             const qty = ref(0)
             return {
                 qty
             }
+        },
+        props: {
+            detailItem: {}
         }
-
     }
 </script>
 

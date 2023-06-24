@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import TopContent from './components/layout/topContent.vue';
-import FootContent from './components/layout/footContent.vue';
+import TopContent from './components/layout/TopContent.vue';
+import FootContent from './components/layout/FootContent.vue';
 
 export default {
   name: "App",
@@ -16,26 +16,6 @@ export default {
     TopContent,
     FootContent
   },
-  // data() {
-  //   return {
-  //     catalog: [],
-  //     catalogApi:
-  //       "http://localhost/final-jewelrylane/api/jewelryApi/jewelry.php",
-  //   };
-  // },
-  // methods: {
-  //   async getJewelry() {
-  //     try {
-  //       let response = await fetch(this.catalogApi);
-  //       this.catalog = await response.json();
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   },
-  // },
-  // created() {
-  //   this.getJewelry();
-  // }
 };
 </script>
 

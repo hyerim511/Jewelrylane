@@ -17,4 +17,15 @@ class JewelryDAO {
         return self::$db->resultSet();
     }
 
+    public static function getJewelryByCategory( string $category ) {
+        $sql = "SELECT * FROM Catalog WHERE category=:category";
+
+        self::$db->query($sql);
+
+        self::$db->bind(":category",$category);
+        self::$db->execute();
+
+        return self::$db->resultSet();
+    }
+
 }

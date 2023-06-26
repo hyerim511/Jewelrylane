@@ -10,10 +10,17 @@ header("Access-Control-Allow-Origin: *");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-switch($method) {
-    case "GET" :
-        JewelryDAO::startDb();
-        echo json_encode(
-            JewelryConverter::convertToStd(JewelryDAO::getAllJewelry())); 
-    break;
+if(!empty($_GET)) {
+    JewelryDAO::startDb();
+            echo json_encode(
+                JewelryConverter::convertToStd(JewelryDAO::getJewelryByCategory('rings'))); 
+
+} else {
+    switch($method) {
+        case "GET" :
+            JewelryDAO::startDb();
+            echo json_encode(
+                JewelryConverter::convertToStd(JewelryDAO::getAllJewelry())); 
+        break;
+    }
 }

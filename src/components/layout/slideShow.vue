@@ -29,9 +29,9 @@ export default {
     },
     setup() {
         const slideImg = ref([
-            {name: 'Pic1', File: '/img/hero1.5b9a98d5.png'},
-            {name: 'Pic2', File: '/img/hero2.d324d02c.png'},
-            {name: 'Pic3', File: '/img/hero3.63da2135.png'}
+            {name: 'Pic1', File: '../../assets/img/hero1.png'},
+            {name: 'Pic2', File: '../../assets/img/hero2.png'},
+            {name: 'Pic3', File: '../../assets/img/hero3.png'}
         ]);
 
         //return the data that have set in setup

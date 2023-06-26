@@ -31,7 +31,7 @@
 <script>
 
 export default {
-  name: 'topContent'
+  name: 'TopContent'
 }
 
 </script>

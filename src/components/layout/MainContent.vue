@@ -1,6 +1,6 @@
 <template>
     <section v-if="display">
-    <ProductDetails :detailItem="this.itemObj"/>
+      <ProductDetails :detailItem="this.itemObj"/>
     </section>
     <main v-else>
         <SlideShow />

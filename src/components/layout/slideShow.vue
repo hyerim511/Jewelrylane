@@ -2,7 +2,7 @@
     <div class="slides">
         <carousel :items-to-show="1">
             <slide v-for="(item, index) in slideImg" :key="index">
-                <img :src="item.File" />
+                <img :src="require(`@/assets/img/${item.File}`)" />
             </slide>
 
             <template #addons>
@@ -29,9 +29,9 @@ export default {
     },
     setup() {
         const slideImg = ref([
-            {name: 'Pic1', File: '/img/hero1.5b9a98d5.png'},
-            {name: 'Pic2', File: '/img/hero2.d324d02c.png'},
-            {name: 'Pic3', File: '/img/hero3.63da2135.png'}
+            {name: 'Pic1', File: 'hero1.png'},
+            {name: 'Pic2', File: 'hero2.png'},
+            {name: 'Pic3', File: 'hero3.png'}
         ]);
 
         //return the data that have set in setup

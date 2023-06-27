@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopContent />
-    <router-view></router-view>
+    <router-view/>
     <FootContent />
   </div>
 </template>

@@ -15,7 +15,7 @@ import MainContent from '../layout/MainContent.vue'
             return {
                 catalog: [],
                 catalogApi:
-                "http://localhost/final-jewelrylane/api/jewelryApi/jewelry.php",
+                "http://localhost:80/final-jewelrylane/api/jewelryApi/jewelry.php",
             };
         },
         methods: {

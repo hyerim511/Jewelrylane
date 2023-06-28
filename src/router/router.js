@@ -1,4 +1,4 @@
-import HomePage from '../components/pages/HomePage.vue'
+import HomePage from '../components/pages/้homePage.vue'
 import AboutPage from '../components/pages/AboutPage.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 

@@ -8,7 +8,7 @@
                 <div>
                     <span class="label">{{ detailItem.category }}</span>
                     <h2>{{ detailItem.title }}</h2>
-                    <p>{{ detailItem.price }}</p>
+                    <p> $ {{ detailItem.price }}</p>
                 </div>
                 <form>
                     <label for="qty">Quantity</label>
@@ -25,26 +25,28 @@
                 </form>
             </figcaption>
         </figure>
-            
-            <!-- You may also like -->
-            <div class="mt-4">
-                <div class="text-left">
-                    <p>You may also like</p>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                    <div v-for="n in 4" :key="n" class="mx-2">
-                        <!-- <img :alt="jewelry.title" :src="jewelry.image"> -->
-                        <img style="width: 300px;" src="https://img.etimg.com/photo/msid-97025114/jewels-galaxy-love-adjustable-ring.jpg">
-                    </div>
-                </div>
-            </div>
-        </section>
+        <YouMayLike :detailItem="Pic"/>
+    </section>
 </template>
 
 <script>
     import {ref} from 'vue';
+    import YouMayLike from './YouMayLike.vue';
     export default {
+    components: { YouMayLike },
         name: 'ProductDetails',
+        data(){
+            return {
+                Pic: [
+                    {name: 'R1', File: 'https://int.cartier.com/content/dam/rcq/car/10/58/52/1/1058521.png'},
+                    {name: 'R2', File: 'https://int.cartier.com/content/dam/rcq/car/13/61/33/2/1361332.png'},
+                    {name: 'R3', File: 'https://int.cartier.com/content/dam/rcq/car/17/93/96/8/1793968.png'},
+                    {name: 'R4', File: 'https://int.cartier.com/content/dam/rcq/car/90/23/92/902392.png'},
+
+                ],
+
+            }
+        },
         setup(){
             // for button+,-
             const qty = ref(0)
@@ -54,6 +56,8 @@
         },
         props: {
             detailItem: {}
+
         }
     }
+        
 </script>

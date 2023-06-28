@@ -12,31 +12,10 @@
                 <li><a href="#">Necklaces</a></li>
                 <li><a href="#">Earrings</a></li>
             </ul>
-            <article>
-                <form>
-                  <input type="search" name="search" id="search">
-                  <button type="submit">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </form>
-                <a href="#">
-                    Price
-                    <i class="fa-solid fa-arrow-down-short-wide"></i>
-                </a>
-            </article>
+          <SearchContent @newJewelryList="this.search" :jewelryList="this.jewelryList"/>
         </section>
-        <section class="content">
-          <figure v-for="jewelry in catalog" :key="jewelry.id" @click="getItem(jewelry)">
-            <div class="thumb">
-              <img :src= "jewelry.image">
-            </div>
-              <figcaption>
-                <span class="label">{{jewelry.category}}</span>
-                <h4>{{jewelry.title}}</h4>
-                <p>$ {{jewelry.price}}</p>
-              </figcaption>
-          </figure>
-        </section>
+        <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()"/>
+        <CatalogContent :catalog="this.localResult" v-else/>
         <section class="pages">
             <a href="#">1</a>
             <a href="#">2</a>
@@ -49,14 +28,21 @@
 // import {ref} from 'vue';
   import SlideShow from './SlideShow.vue';
   import ProductDetails from './ProductDetails.vue';
+  import CatalogContent from './CatalogContent.vue';
+  import SearchContent from './SearchContent.vue';
   export default {
       name: 'MainContent',
 
       props:['catalog'],
+      // props: {
+      //   catalog: []
+      // },
       data() {
         return {
+          jewelryList: [],
           itemObj: {},
-          display: false
+          display: false,
+          localResult: []
         }
       },
       setup(props){
@@ -71,11 +57,25 @@
         getItem(item) {
           this.itemObj = item;
           this.display = true;
-        }
+        },
+
+        search(e) {
+          this.localResult = e;
+        },
+
+        checkSearchResults() {
+          if (this.localResult.length > 0) {
+            return true;
+          } else {
+            return false;
+          }
+        },
       },
       components: {
         ProductDetails,
         SlideShow,
+        CatalogContent,
+        SearchContent
       }
   }
 </script>

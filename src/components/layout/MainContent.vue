@@ -25,8 +25,8 @@
                 </a>
             </article>
         </section>
-        <section class="content">
-          <figure v-for="jewelry in catalog" :key="jewelry.id" @click="getItem(jewelry)">
+        <section class="content" v-if="! more">
+          <figure v-for="jewelry in defalutList()" :key="jewelry.id" @click="getItem(jewelry)">
             <div class="thumb">
               <img :src= "jewelry.image">
             </div>
@@ -37,10 +37,25 @@
               </figcaption>
           </figure>
         </section>
-        <section class="pages">
+        <section class="content" v-else>
+          <figure v-for="jewelry in catalogList2" :key="jewelry.id" @click="getItem(jewelry)">
+            <div class="thumb">
+              <img :src= "jewelry.image">
+            </div>
+              <figcaption>
+                <span class="label">{{jewelry.category}}</span>
+                <h4>{{jewelry.title}}</h4>
+                <p>$ {{jewelry.price}}</p>
+              </figcaption>
+          </figure>
+        </section>
+        <!-- <section class="pages">
             <a href="#">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
+        </section> -->
+        <section class="pages">
+          <button @click="viewMore">View More</button>
         </section>
     </main>
 </template>
@@ -52,15 +67,20 @@
   export default {
       name: 'MainContent',
 
-      props:['catalog'],
+      props: {
+        catalog: []
+      },
       data() {
         return {
           itemObj: {},
-          display: false
+          display: false,
+          catalogList: [],
+          catalogList2: [],
+          itemNumber: "",
+          more: false
         }
       },
-      setup(props){
-        console.log(props.catalog);
+      setup(){
         // const onClickProduct=(id)=>{
         //   console.log(id);
         //   this.$router.push(`/productDetails/${id}`)
@@ -71,6 +91,17 @@
         getItem(item) {
           this.itemObj = item;
           this.display = true;
+        },
+        defalutList() {
+          this.itemNumber = 8;
+          this.catalogList = this.catalog.slice(0, this.itemNumber);
+          return this.catalogList;
+        },
+        viewMore() {
+          this.more = true;
+          this.itemNumber += 4;
+          this.catalogList2 = this.catalog.slice(0, this.itemNumber);
+          return this.catalogList2; 
         }
       },
       components: {

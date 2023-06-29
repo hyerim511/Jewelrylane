@@ -263,7 +263,4 @@ main {
 .product-detail figcaption input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-.product-detail figcaption input[type=number] {
-  -moz-appearance: textfield;
 }/*# sourceMappingURL=style.css.map */

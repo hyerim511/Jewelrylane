@@ -301,3 +301,41 @@ main {
         
     }
 }
+
+
+
+// BOOKING
+
+.booking {
+    @include FlexCenter();
+    flex-direction: column;
+    row-gap: 3vh;
+    padding: 5%;
+
+    aside {
+        border-bottom: 1px solid $colorLabel;
+        width: 70%;
+        text-align: center;
+        padding: 2% 0;
+    }
+
+    h3 {
+        font-family: $fontTitle;
+    }
+
+}
+
+.booking-form {
+    @include FlexColumn(5vh);
+    width: 70%;
+
+    section {
+        @include FlexColumn(3vh);
+
+        div {
+            display: flex;
+        }
+    }
+
+
+}

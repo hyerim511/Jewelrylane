@@ -263,4 +263,37 @@ main {
 .product-detail figcaption input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 3vh;
+  padding: 5%;
+}
+.booking aside {
+  border-bottom: 1px solid #C8BDAB;
+  width: 70%;
+  text-align: center;
+  padding: 2% 0;
+}
+.booking h3 {
+  font-family: "Julius Sans One", sans-serif;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+  width: 70%;
+}
+.booking-form section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3vh;
+}
+.booking-form section div {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

@@ -16,14 +16,7 @@
         </section>
         <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()"/>
         <CatalogContent :catalog="this.localResult" v-else/>
-        <section class="pages">
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-        </section> -->
-        <section class="pages">
-          <button @click="viewMore">View More</button>
-        </section>
+        
     </main>
 </template>
 

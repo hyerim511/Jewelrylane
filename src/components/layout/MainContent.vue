@@ -1,6 +1,6 @@
 <template>
     <section v-if="display">
-      <ProductDetails :detailItem="this.itemObj"/>
+      <ProductDetails :detailItem="this.newEmitItem"/>
     </section>
     <main v-else>
         <SlideShow />
@@ -14,13 +14,9 @@
             </ul>
           <SearchContent @newJewelryList="search" :jewelryList="this.catalog"/>
         </section>
-        <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()"/>
-        <CatalogContent :catalog="this.localResult" v-else/>
-        <section class="pages">
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-        </section>
+        <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()" @emitList="newItem"/>
+        <CatalogContent :catalog="this.localResult" v-else @emitList="newItem" />
+        
     </main>
 </template>
 
@@ -40,13 +36,12 @@
       data() {
         return {
           jewelryList: [],
-          itemObj: {},
+          newEmitItem: {},
           display: false,
           localResult: []
         }
       },
-      setup(props){
-        console.log(props.catalog);
+      setup(){
         // const onClickProduct=(id)=>{
         //   console.log(id);
         //   this.$router.push(`/productDetails/${id}`)
@@ -54,8 +49,8 @@
         // return {onClickProduct}
       },
       methods: {
-        getItem(item) {
-          this.itemObj = item;
+        newItem(e) {
+          this.newEmitItem = e;
           this.display = true;
         },
 

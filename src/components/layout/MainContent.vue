@@ -20,6 +20,9 @@
             <a href="#">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
+        </section> -->
+        <section class="pages">
+          <button @click="viewMore">View More</button>
         </section>
     </main>
 </template>
@@ -45,8 +48,7 @@
           localResult: []
         }
       },
-      setup(props){
-        console.log(props.catalog);
+      setup(){
         // const onClickProduct=(id)=>{
         //   console.log(id);
         //   this.$router.push(`/productDetails/${id}`)

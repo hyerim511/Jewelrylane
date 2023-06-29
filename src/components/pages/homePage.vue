@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MainContent/>
+        <MainContent :catalog="catalog"/>
     </div>
 </template>
 

@@ -12,7 +12,7 @@
                 <li><a href="#">Necklaces</a></li>
                 <li><a href="#">Earrings</a></li>
             </ul>
-          <SearchContent @newJewelryList="this.search" :jewelryList="this.jewelryList"/>
+          <SearchContent @newJewelryList="search" :jewelryList="this.catalog"/>
         </section>
         <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()"/>
         <CatalogContent :catalog="this.localResult" v-else/>
@@ -33,10 +33,10 @@
   export default {
       name: 'MainContent',
 
-      props:['catalog'],
-      // props: {
-      //   catalog: []
-      // },
+      // props:['catalog'],
+      props: {
+        catalog: []
+      },
       data() {
         return {
           jewelryList: [],

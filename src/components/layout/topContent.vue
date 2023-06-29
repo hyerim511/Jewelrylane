@@ -21,7 +21,7 @@
         </router-link>
       </li>
       <li>
-        <router-link class="nav-icon" to="/cart">
+        <router-link class="nav-icon" to="/ProductCart">
           <i class="fa-solid fa-cart-shopping"></i>
         </router-link>
       </li>

@@ -12,8 +12,9 @@
                 <li><a href="#">Necklaces</a></li>
                 <li><a href="#">Earrings</a></li>
             </ul>
-          <SearchContent @newJewelryList="search" :jewelryList="this.catalog"/>
+          <SearchContent @newJewelryList="search" @sortedJewelry="sort" :jewelryList="this.catalog"/>
         </section>
+        <p>{{this.newLocalResult}}</p>
         <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()"/>
         <CatalogContent :catalog="this.localResult" v-else/>
         
@@ -38,7 +39,9 @@
           jewelryList: [],
           itemObj: {},
           display: false,
-          localResult: []
+          localResult: [],
+          newLocalResult: [],
+
         }
       },
       setup(){
@@ -65,6 +68,10 @@
             return false;
           }
         },
+
+        sort(e) {
+          this.newLocalResult = e;
+        }
       },
       components: {
         ProductDetails,

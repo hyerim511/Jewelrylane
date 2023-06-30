@@ -84,10 +84,15 @@ input:focus, textarea:focus {
     color: $colorBg;
 }
 
+h1 {
+    font-family: $fontTitle;
+    letter-spacing: 2px;
+}
+
 
 // HEADER
 
-.header-tab {
+.header {
     @include FlexRow();
     justify-content: space-between;
     align-items: center;
@@ -105,10 +110,51 @@ input:focus, textarea:focus {
     li {
         @include FlexRow();
     }
+}
+
+.dim {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-mobile {
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    height: 100%;
+    background-color: $colorWhite;
+    padding: 3%;
+    @include FlexColumn(4vh);
 
     h1 {
-        font-family: $fontTitle;
-        letter-spacing: 2px;
+        font-size: 1.2em;
+    }
+
+    ul {
+        @include FlexColumn(2vh);
+    }
+
+    li {
+        display: flex;
+        // justify-content: center;
+    }
+
+    i {
+        font-size: .8em;
+        padding-right: .5em;
+    }
+
+    .btn-close {
+        position: absolute;
+        color: $colorLabel;
+        left: -20%;
+
+        i {
+            font-size: 1.5em;
+        }
     }
 }
 

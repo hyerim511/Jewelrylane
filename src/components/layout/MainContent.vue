@@ -7,8 +7,10 @@
         <section class="filter">
             <ul>
                 <li class="active"><a href="#">All</a></li>
-                <li><a href="#">Rings</a></li>
-                <li><a href="#">Bracelets</a></li>
+                <li><a href="#" @click="getValue($event)">rings</a></li>
+                <li><a href="#" @click="getValue($event)">earrings</a></li>
+                <li><a href="#" @click="getValue($event)">necklaces</a></li>
+                <li><a href="#" @click="getValue($event)">earrings</a></li>
                 <li><a href="#">Necklaces</a></li>
                 <li><a href="#">Earrings</a></li>
             </ul>
@@ -28,8 +30,6 @@
   import SearchContent from './SearchContent.vue';
   export default {
       name: 'MainContent',
-
-      // props:['catalog'],
       props: {
         catalog: []
       },
@@ -38,15 +38,10 @@
           jewelryList: [],
           newEmitItem: {},
           display: false,
-          localResult: []
+          localResult: [],
+          filterName: '',
+          filteredList: [],
         }
-      },
-      setup(){
-        // const onClickProduct=(id)=>{
-        //   console.log(id);
-        //   this.$router.push(`/productDetails/${id}`)
-        // }
-        // return {onClickProduct}
       },
       methods: {
         newItem(e) {
@@ -65,12 +60,22 @@
             return false;
           }
         },
+
+        getValue(e) {
+          this.filteredList = [];
+          this.filterName = e.target.textContent;
+          this.catalog.forEach( (product)=>{ 
+            if(product.category === this.filterName) {
+              this.filteredList.push(product);
+            }
+            })
+        },
       },
       components: {
         ProductDetails,
         SlideShow,
         CatalogContent,
-        SearchContent
+        SearchContent,
       }
   }
 </script>

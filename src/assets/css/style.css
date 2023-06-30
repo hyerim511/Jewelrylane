@@ -270,7 +270,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  row-gap: 3vh;
+  row-gap: 5vh;
   padding: 5%;
 }
 .booking aside {
@@ -281,6 +281,17 @@ main {
 }
 .booking h3 {
   font-family: "Julius Sans One", sans-serif;
+  color: #C8BDAB;
+  letter-spacing: 3px;
+}
+.booking [type=submit] {
+  background-color: #726B64;
+  color: white;
+  width: 40%;
+  align-self: center;
+  padding: 1.5%;
+  border-radius: 10vw;
+  font-size: 17px;
 }
 
 .booking-form {
@@ -296,4 +307,51 @@ main {
 }
 .booking-form section div {
   display: flex;
+  -moz-column-gap: 2vw;
+       column-gap: 2vw;
+}
+
+.purpose label {
+  width: 100%;
+}
+.purpose label:hover {
+  cursor: pointer;
+}
+.purpose [type=checkbox] {
+  display: none;
+}
+.purpose [type=checkbox] + span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #EDE8E1;
+  border: 1px solid #C8BDAB;
+}
+.purpose [type=checkbox]:checked + span {
+  background-color: #C8BDAB;
+}
+
+.appointment div > label, .personalInfo div > label {
+  width: 100%;
+  border-bottom: 1px solid #C8BDAB;
+  display: flex;
+  -moz-column-gap: 2vw;
+       column-gap: 2vw;
+  justify-content: space-between;
+  padding: 1% 0;
+}
+.appointment input, .personalInfo input {
+  width: 100%;
+}
+.appointment > label, .personalInfo > label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+}
+.appointment textarea, .personalInfo textarea {
+  border: 1px solid #C8BDAB;
+  padding: 1%;
+  height: 100px;
+  resize: none;
 }/*# sourceMappingURL=style.css.map */

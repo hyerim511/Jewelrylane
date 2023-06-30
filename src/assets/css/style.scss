@@ -309,7 +309,7 @@ main {
 .booking {
     @include FlexCenter();
     flex-direction: column;
-    row-gap: 3vh;
+    row-gap: 5vh;
     padding: 5%;
 
     aside {
@@ -321,6 +321,18 @@ main {
 
     h3 {
         font-family: $fontTitle;
+        color: $colorLabel;
+        letter-spacing: 3px;
+    }
+
+    [type="submit"] {
+        background-color: $colorDeep;
+        color: white;
+        width: 40%;
+        align-self: center;
+        padding: 1.5%;
+        border-radius: 10vw;
+        font-size: 17px;
     }
 
 }
@@ -333,9 +345,50 @@ main {
         @include FlexColumn(3vh);
 
         div {
-            display: flex;
+        @include FlexRow(2vw);
         }
     }
+}
 
+.purpose {
+    label {
+        width: 100%;
+    }
+    label:hover {
+        cursor: pointer;
+    }
+    [type="checkbox"] {
+        display: none;
+    }
+    [type="checkbox"] + span {
+        @include FlexCenter();
+        height: 80px;
+        background-color: $colorThumb;
+        border: 1px solid $colorLabel;
+    }
+    [type="checkbox"]:checked + span {
+        background-color: $colorLabel;
+    }
+}
 
+.appointment, .personalInfo {
+    div > label {
+        width: 100%;
+        border-bottom: 1px solid $colorLabel;
+        @include FlexRow(2vw);
+        justify-content: space-between;
+        padding: 1% 0;
+    }
+    input {
+        width: 100%;
+    }
+    &>label {
+        @include FlexColumn(1vh);
+    }
+    textarea {
+        border: 1px solid $colorLabel;
+        padding: 1%;
+        height: 100px;
+        resize: none;
+    }
 }

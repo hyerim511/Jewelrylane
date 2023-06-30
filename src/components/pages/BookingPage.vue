@@ -11,31 +11,58 @@
                     Purpose of your visit
                 </h4>
                 <div>
-                    <label for="make">Make your jewelry</label>
-                    <input type="checkbox" id="make" name="purpose" value="Make your jewelry">
-                    <input type="checkbox" id="discover" name="purpose" value="Discover our collections">
-                    <input type="checkbox" id="care" name="purpose" value="Care service">
+                    <label for="make">
+                        <input type="checkbox" id="make" name="purpose" value="Make your jewelry">
+                        <span>Make your jewelry</span>
+                    </label>
+                    <label for="discover">
+                        <input type="checkbox" id="discover" name="purpose" value="Discover our collections">
+                        <span>Discover our collections</span>
+                    </label>
+                    <label for="care">
+                        <input type="checkbox" id="care" name="purpose" value="Care service">
+                        <span>Care service</span>
+                    </label>
                 </div>
             </section>
             <section class="appointment">
-                <strong>
+                <h4>
                     Appointment details
-                </strong>
-                <input type="date" id="appointment" name="appointment">
-                <input type="time" name="appt" id="appt">
-                <p>Complementary Comments</p>
-                <textarea name="comments" id="comments"></textarea>
+                </h4>
+                <div>
+                    <label for="date">
+                        Date
+                        <input type="date" id="date" name="date">    
+                    </label>
+                    <label for="time">
+                        Time
+                        <input type="time" name="time" id="time">
+                    </label>
+                </div>
+                <label for="comments">
+                    Complementary Comments
+                    <textarea name="comments" id="comments"></textarea>
+                </label>
             </section>
-
             <section class="personalInfo">
-                <strong>
+                <h4>
                     Personal information
-                </strong>
-                <input type="text" name="fullName" id="fullName" placeholder="Name">
-                <input type="email" name="email" id="email" placeholder="Email">
-                <input type="tel" name="phone" id="phone" placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                </h4>
+                <div>
+                    <label for="fullName">
+                        Name
+                        <input type="text" name="fullName" id="fullName" placeholder="Your Full Name">
+                    </label>
+                    <label for="email">
+                        Email
+                        <input type="email" name="email" id="email" placeholder="Your Email">
+                    </label>
+                    <label for="phone">
+                        Phone
+                        <input type="tel" name="phone" id="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    </label>
+                </div>
             </section>
-
             <input type="submit" value="Make an appointment">
         </form>
     </section>

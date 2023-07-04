@@ -25,8 +25,8 @@
           <i class="fa-solid fa-cart-shopping"></i>
         </router-link>
       </li>
-      <li>
-        <i class="fa-solid fa-cart-shopping"></i>
+      <li class="display">
+        <i class="fa-solid fa-bars"></i>
       </li>
     </ul>
   </nav>
@@ -63,7 +63,7 @@
       </li>
     </ul>
     <div class="btn-close">
-      <i class="fa-solid fa-cart-shopping"></i>
+      <i class="fa-solid fa-xmark"></i>
     </div>
   </nav>
 </template>

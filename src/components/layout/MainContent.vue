@@ -14,6 +14,19 @@
             </ul>
           <SearchContent @newJewelryList="search" @sortedJewelry="sort" :jewelryList="this.catalog"/>
         </section>
+        <a class="btn-filter" @click="mobileFilter">
+          <i class="fa-solid fa-ellipsis"></i>
+        </a>
+        <section class="filter-mobile " :class="{ display: mobileFilterValue }">
+            <ul>
+                <li class="active"><a href="#" @click="getValue($event)">All</a></li>
+                <li><a href="#" @click="getValue($event)">rings</a></li>
+                <li><a href="#" @click="getValue($event)">earrings</a></li>
+                <li><a href="#" @click="getValue($event)">necklaces</a></li>
+                <li><a href="#" @click="getValue($event)">bracelets</a></li>
+            </ul>
+          <SearchContent @newJewelryList="search" @sortedJewelry="sort" :jewelryList="this.catalog"/>
+        </section>
         <div v-if="this.filteredList.length">
         <CatalogContent :catalog="this.filteredList" @emitList="newItem"/>
         </div>
@@ -49,6 +62,7 @@
           sortingResult: [],
           filterName: '',
           filteredList: [],
+          mobileFilterValue: false,
         }
       },
       methods: {
@@ -80,6 +94,9 @@
             }
           })
         },
+        mobileFilter(){
+          this.mobileFilterValue = !this.mobileFilterValue;
+        },
       },
       components: {
         ProductDetails,
@@ -89,3 +106,21 @@
       }
   }
 </script>
+
+
+<style scoped>
+
+  .display {
+    display: flex;
+    animation-name: navAni;
+    animation-duration: .8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes navAni {
+    from { opacity: 0; top: -5%;}
+    to { opacity: 1; top: 0;}
+  }
+
+</style>

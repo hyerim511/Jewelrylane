@@ -54,8 +54,7 @@ export default {
           this.catalogList = this.catalog.slice(0, this.itemNumber);
           return this.catalogList;
         },
-        viewMore(e) {
-          console.log(e);
+        viewMore() {
           this.more = true;
           this.itemNumber += 4;
           this.catalogListMore = this.catalog.slice(0, this.itemNumber);

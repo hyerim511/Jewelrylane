@@ -40,10 +40,15 @@ export default {
           catalogList: [],
           catalogListMore: [],
           itemNumber: "",
-          more: false
+          more: false,
+          itemObj: {},
         }
     },
     methods: {
+      getItem(item) {
+          this.itemObj = item;
+          this.$emit("emitList", this.itemObj);
+        },
         defalutList() {
           this.itemNumber = 8;
           this.catalogList = this.catalog.slice(0, this.itemNumber);

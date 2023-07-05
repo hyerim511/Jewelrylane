@@ -1,6 +1,6 @@
 <template>
     <section v-if="display">
-      <ProductDetails :detailItem="this.itemObj"/>
+      <ProductDetails :detailItem="this.newEmitItem"/>
     </section>
     <main v-else>
         <SlideShow />
@@ -14,9 +14,13 @@
             </ul>
           <SearchContent @newJewelryList="search" @sortedJewelry="sort" :jewelryList="this.catalog"/>
         </section>
+
         <p>{{this.newLocalResult}}</p>
         <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()"/>
         <CatalogContent :catalog="this.localResult" v-else/>
+
+        <!-- <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()" @emitList="newItem"/>
+        <CatalogContent :catalog="this.localResult" v-else @emitList="newItem" /> -->
         
     </main>
 </template>
@@ -37,7 +41,7 @@
       data() {
         return {
           jewelryList: [],
-          itemObj: {},
+          newEmitItem: {},
           display: false,
           localResult: [],
           newLocalResult: [],
@@ -52,8 +56,8 @@
         // return {onClickProduct}
       },
       methods: {
-        getItem(item) {
-          this.itemObj = item;
+        newItem(e) {
+          this.newEmitItem = e;
           this.display = true;
         },
 

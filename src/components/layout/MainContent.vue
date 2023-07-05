@@ -6,24 +6,26 @@
         <SlideShow />
         <section class="filter">
             <ul>
-                <li class="active"><a href="#">All</a></li>
+                <li class="active"><a href="#" @click="getValue($event)">All</a></li>
                 <li><a href="#" @click="getValue($event)">rings</a></li>
                 <li><a href="#" @click="getValue($event)">earrings</a></li>
                 <li><a href="#" @click="getValue($event)">necklaces</a></li>
-                <li><a href="#" @click="getValue($event)">earrings</a></li>
-                <li><a href="#">Necklaces</a></li>
-                <li><a href="#">Earrings</a></li>
+                <li><a href="#" @click="getValue($event)">bracelets</a></li>
             </ul>
           <SearchContent @newJewelryList="search" @sortedJewelry="sort" :jewelryList="this.catalog"/>
         </section>
-
-        <p>{{this.newLocalResult}}</p>
-        <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()"/>
-        <CatalogContent :catalog="this.localResult" v-else/>
-
-        <!-- <CatalogContent :catalog="this.catalog" v-if="!this.checkSearchResults()" @emitList="newItem"/>
-        <CatalogContent :catalog="this.localResult" v-else @emitList="newItem" /> -->
-        
+        <div v-if="this.filteredList.length">
+        <CatalogContent :catalog="this.filteredList" @emitList="newItem"/>
+        </div>
+        <div v-if="this.searchResult.length">
+        <CatalogContent :catalog="this.searchResult" @emitList="newItem"/>
+        </div>
+        <div v-if="this.sortingResult.length">
+        <CatalogContent :catalog="this.sortingResult" @emitList="newItem"/>
+        </div>
+        <div v-if="!this.filteredList.length && !this.searchResult.length && !this.sortingResult.length">
+        <CatalogContent :catalog="this.catalog" @emitList="newItem"/>
+        </div>
     </main>
 </template>
 
@@ -43,9 +45,8 @@
           jewelryList: [],
           newEmitItem: {},
           display: false,
-          localResult: [],
-          newLocalResult: [],
-
+          searchResult: [],
+          sortingResult: [],
           filterName: '',
           filteredList: [],
         }
@@ -55,30 +56,29 @@
           this.newEmitItem = e;
           this.display = true;
         },
-
         search(e) {
-          this.localResult = e;
+          this.searchResult = e;
         },
-
         checkSearchResults() {
-          if (this.localResult.length > 0) {
+          if (this.searchResult.length > 0) {
             return true;
           } else {
             return false;
           }
         },
-
         sort(e) {
-          this.newLocalResult = e;
-        }
+          this.sortingResult = e;
+        },
         getValue(e) {
           this.filteredList = [];
           this.filterName = e.target.textContent;
           this.catalog.forEach( (product)=>{ 
             if(product.category === this.filterName) {
               this.filteredList.push(product);
+            } if(this.filterName == 'All') {
+              this.filteredList = this.catalog;
             }
-            })
+          })
         },
       },
       components: {

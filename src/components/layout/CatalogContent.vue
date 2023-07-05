@@ -54,10 +54,14 @@ export default {
           this.catalogList = this.catalog.slice(0, this.itemNumber);
           return this.catalogList;
         },
-        viewMore() {
+        viewMore(e) {
+          console.log(e);
           this.more = true;
           this.itemNumber += 4;
           this.catalogListMore = this.catalog.slice(0, this.itemNumber);
+          if(this.itemNumber === 40) {
+            this.more = false;
+          }
           return this.catalogListMore; 
         }
     }

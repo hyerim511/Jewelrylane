@@ -6,7 +6,7 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
-        <a href="#">
+        <a href="#" @click="sort">
             Price
             <i class="fa-solid fa-arrow-down-short-wide"></i>
         </a>
@@ -17,12 +17,14 @@
 export default {
     name: "SearchContent",
     props: {
-        jewelryList: []
+        jewelryList: [],
     },
     data() {
         return {
             typedValue: '',
             searchResult: [],
+            sortedResult: [],
+            localList: [],
         }
     },
     methods: {
@@ -32,6 +34,16 @@ export default {
           );
 
           this.$emit("newJewelryList", this.searchResult);
+        },
+        sort() {
+            this.localList = this.jewelryList;
+
+            this.localList.sort(
+                (jewelry1,jewelry2) => {return jewelry1.price - jewelry2.price}
+            );
+            // console.log(this.localList)
+
+            this.$emit("sortedJewelry", this.localList)
         },
     }
 }

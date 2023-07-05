@@ -2,67 +2,63 @@
   <nav class="header">
     <ul>
       <li>
-        <router-link class="nav-link" to="/">Home</router-link>
+        <router-link to="/">Home</router-link>
       </li>
       <li>
-        <router-link class="nav-link" to="/about">About</router-link>
+        <router-link to="/about">About</router-link>
       </li>
       <li>
-        <router-link class="nav-link" to="/contact">Contact Us</router-link>
+        <router-link to="/contact">Contact Us</router-link>
       </li>
     </ul>
-    <h1>
-      JEWELRYLANE
-    </h1>
+    <router-link to="/"><h1>JEWELRYLANE</h1></router-link>    
     <ul>
       <li>
-        <router-link class="nav-icon cursor-pointer" to="/booking">
+        <router-link to="/booking">
           <i class="fa-solid fa-calendar"></i>
         </router-link>
       </li>
       <li>
-        <router-link class="nav-icon" to="/cart">
+        <router-link to="/cart">
           <i class="fa-solid fa-cart-shopping"></i>
         </router-link>
       </li>
-      <li class="display">
-        <i class="fa-solid fa-bars"></i>
-      </li>
     </ul>
+      <a @click="mobileNav">
+        <i class="fa-solid fa-bars"></i>
+      </a>
   </nav>
 
   <!-- MOBILE -->
-  <div class="dim display"></div>
-  <nav class="header-mobile display">
-    <h1>
-      JEWELRYLANE
-    </h1>
+  <div class="" :class="{ dim: mobileNavValue }"></div>
+  <nav class="header-mobile " :class="{ display: mobileNavValue }">
+    <router-link to="/"><h1>JEWELRYLANE</h1></router-link> 
     <ul>
       <li>
-        <router-link class="nav-link" to="/">Home</router-link>
+        <router-link to="/">Home</router-link>
       </li>
       <li>
-        <router-link class="nav-link" to="/about">About</router-link>
+        <router-link to="/about">About</router-link>
       </li>
       <li>
-        <router-link class="nav-link" to="/contact">Contact Us</router-link>
+        <router-link to="/contact">Contact Us</router-link>
       </li>
     </ul>
     <ul>
       <li>
-        <router-link class="nav-icon cursor-pointer" to="/booking">
+        <router-link to="/booking">
           <i class="fa-solid fa-calendar"></i>
           Booking
         </router-link>
       </li>
       <li>
-        <router-link class="nav-icon" to="/cart">
+        <router-link to="/cart">
           <i class="fa-solid fa-cart-shopping"></i>
           Cart
         </router-link>
       </li>
     </ul>
-    <div class="btn-close">
+    <div class="btn-close" @click="mobileNavClose">
       <i class="fa-solid fa-xmark"></i>
     </div>
   </nav>
@@ -70,14 +66,38 @@
 <script>
 
 export default {
-  name: 'TopContent'
+  name: 'TopContent',
+  data() {
+    return {
+      mobileNavValue: false,
+    }
+  },
+  methods: {
+    mobileNav(){
+      this.mobileNavValue = !this.mobileNavValue;
+    },
+    mobileNavClose(){
+      this.mobileNavValue = false;
+    }
+  }
 }
 
 </script>
 
 <style scoped>
+
   .display {
-    display: none;
+    display: flex;
+    animation-name: navAni;
+    animation-duration: .8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
   }
+
+  @keyframes navAni {
+    from { opacity: 0; top: -5%;}
+    to { opacity: 1; top: 0;}
+  }
+
 </style>
 

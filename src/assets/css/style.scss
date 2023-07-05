@@ -93,7 +93,7 @@ h1 {
 // MEDIA QUERY
 // MOBILE
 
-@media (max-width: 700px) {
+@media (min-width: 200px) {
     
     // HEADER
     
@@ -137,7 +137,6 @@ h1 {
         position: absolute;
         z-index: 9999;
         width: 80%;
-        max-width: 400px;
         height: fit-content;
         background-color: $colorBg;
         padding: 20% 10%;
@@ -162,7 +161,7 @@ h1 {
         .btn-close {
             position: absolute;
             color: $colorLabel;
-            right: 0;
+            right: 3%;
             top: 5%;
     
             i {
@@ -189,44 +188,57 @@ h1 {
     // MAIN LIST
     
     main {
-        @include FlexColumn(5vh);
+        @include FlexColumn(3vh);
+    }
+
+    .filter {
+        display: none;
+    }
+
+    .btn-filter {
+        align-self: flex-end;
+        padding-right: 10%;
     }
     
-    .filter {
-        @include FlexRow();
-        justify-content: space-between;
-        align-items: center;
+    .filter-mobile {
+        display: none;
+        flex-direction: column;
+        row-gap: 2vh;
         padding: 0 5%;
     
         ul {
-            @include FlexRow(2vw);
+            @include FlexRow();
+            // width: 100%;
+            justify-content: space-between;
+            align-items: center;
         }
     
         li {
             @include FlexRow();
-            width: 6vw;
+            color: $colorDeep;
     
             a {
                 padding: 10%;
             }
         }
-    
+
         .active {
-            border-bottom: 1px solid $colorDeep;
+            color: $colorBlack;
         }
-    
+
         article {
-            @include FlexRow(3vw);
+            @include FlexRow();
+            justify-content: space-between;
+            align-items: center;
     
             form {
                 border-bottom: 1px solid $colorLabel;
             }
     
             input {
-                width: 240px;
+                width: 60vw;
                 padding: 2%;
             }
-    
         }
     }
     
@@ -235,58 +247,35 @@ h1 {
         flex-wrap: wrap;
         justify-content: space-around;
         padding: 0 4%;
-        gap: 4vw;
+        row-gap: 4vh;
     
         figure {
             @include FlexColumn(2vh);
-            width: 20vw;
-    
+            width: 40vw;
+
             img {
-                transition: .6s;
+                width: 20vw;
+                height: 40vw;
             }
-        }
-    
-        figure:hover {
-            outline: 20px solid $colorWhite;
-            background: #FCFAF9;
-            box-shadow: 0px 10px 20px -4px rgba(0, 0, 0, 0.5);
-    
-            .thumb {
-                background-color: transparent;
-                border: 0;
-            }
-    
-            img {
-                width: 12vw;
-                transform: rotate(15deg);
-            }
-        }
-    
-        img {
-            width: 9vw;
-            height: 20vw;
         }
     
         figcaption {
             @include FlexColumn(1vh);
     
             h4 {
-                font-size: 18px;
+                font-size: 16px;
             }
         }
     }
     
     .pages {
-        @include FlexRow(3vw);
+        @include FlexRow();
         justify-content: center;
-        padding: 5%;
+        padding: 8%;
         button {
-            padding: 1% 2%;
-            border: 1px solid $colorDeep;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: $colorThumb;
+            padding: 2% 10%;
+            border: 1px solid $colorLabel;
+            color: $colorDeep;
         }
     }
     
@@ -298,22 +287,21 @@ h1 {
         @include FlexColumn(8vh);
     
         figure {
-            @include FlexRow();
-            justify-content: space-between;
+            @include FlexColumn();
         }
     
         .thumb {
-            width: 50%;
+            width: 100%;
         }
     
         img {
             width: 40%;
-            height: 60vh;
+            height: 40vh;
         }
     
         figcaption {
-            @include FlexColumn();
-            width: 45%;
+            @include FlexColumn(6vh);
+            width: 100%;
             padding: 4% 0;
             justify-content: space-between;
     
@@ -330,7 +318,7 @@ h1 {
             }
     
             button, input {
-                padding: 2%;
+                padding: 3%;
             }
     
             label {
@@ -370,7 +358,6 @@ h1 {
                 -webkit-appearance: none;
                 margin: 0;
             }
-            
         }
     }
     
@@ -384,17 +371,24 @@ h1 {
         }
     
         ul {
-            @include FlexRow(3vw);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             width: 100%;
+            gap: 4vw;
         }
     
         li {
             display: flex;
+            width: 43vw;
+        }
+
+        figure {
             width: 100%;
         }
     
         .thumb {
-            width: 20vw;
+            width: 100%;
         }
     
         img {
@@ -410,9 +404,9 @@ h1 {
     section {
         aside {
             border-bottom: 1px solid $colorLabel;
-            width: 70%;
+            width: 100%;
             text-align: center;
-            padding: 2% 0;
+            padding: 5% 0;
         }
     
         h3 {
@@ -433,17 +427,14 @@ h1 {
         [type="submit"] {
             background-color: $colorDeep;
             color: white;
-            width: 40%;
             align-self: center;
-            padding: 1.5%;
+            padding: 3% 8%;
             border-radius: 10vw;
-            font-size: 17px;
         }
     }
     
     .booking-form {
         @include FlexColumn(5vh);
-        width: 70%;
     
         section {
             @include FlexColumn(3vh);
@@ -457,9 +448,7 @@ h1 {
     .purpose {
         label {
             width: 100%;
-        }
-        label:hover {
-            cursor: pointer;
+            text-align: center;
         }
         [type="checkbox"] {
             display: none;
@@ -469,19 +458,26 @@ h1 {
             height: 80px;
             background-color: $colorThumb;
             border: 1px solid $colorLabel;
+            color: $colorDeep;
         }
         [type="checkbox"]:checked + span {
             background-color: $colorLabel;
+            color: $colorBlack;
         }
     }
     
     .appointment, .personalInfo {
+
+        div {
+            @include FlexColumn(2vh);
+        }
+
         div > label {
             width: 100%;
             border-bottom: 1px solid $colorLabel;
             @include FlexRow(2vw);
             justify-content: space-between;
-            padding: 1% 0;
+            padding: 3% 0;
         }
         input {
             width: 100%;
@@ -507,12 +503,11 @@ h1 {
     
         figure {
             @include FlexColumn(4vh);
-            width: 70%;
         }
     
         img {
             width: 100%;
-            height: 500px;
+            height: 40vh;
             object-fit: cover;
         }
     
@@ -521,7 +516,7 @@ h1 {
     
             article {
                 display: grid;
-                grid-template-columns: auto auto auto;
+                grid-template-columns: auto;
                 border-top: 1px solid $colorThumb;
                 padding-top: 2%;
             }
@@ -538,7 +533,67 @@ h1 {
             }
         }
     }
+}
+
+
+// MEDIA QUERY
+// TABLET
+
+@media (min-width: 700px) {
+    
+    // FOOTER
+    
+    footer {
+        padding: 5%;
     }
+    
+    
+    // MAIN LIST
+
+    .btn-filter {
+        align-self: flex-end;
+        padding-right: 10%;
+    }
+    
+    .filter-mobile {
+        padding: 0 10%;
+    }
+    
+    .content {   
+        figcaption {    
+            h4 {
+                font-size: 18px;
+            }
+        }
+    }
+    
+    
+    // 
+    // OTHER PAGES
+    
+    
+    // BOOKING
+    
+    .booking-form {
+        width: 100%;
+    }
+    
+    .appointment, .personalInfo {
+        div {
+            flex-direction: row;
+        }
+    }
+    
+    // ABOUT PAGE
+    
+    .about {
+        figcaption {
+            article {
+                grid-template-columns: auto auto;
+            }
+        }
+    }
+}
 
 
 // MEDIA QUERY
@@ -548,10 +603,11 @@ h1 {
     
 // HEADER
 
+.btn-nav {
+    display: none;
+}
+
 .header {
-    @include FlexRow();
-    justify-content: space-between;
-    align-items: center;
     padding: 2% 4%;
 
     ul {
@@ -559,78 +615,40 @@ h1 {
         width: 20%;
     }
 
-    ul:last-child {
-        justify-content: right
+    .nav-icon {
+        justify-content: right;
     }
 
     li {
         @include FlexRow();
     }
-}
-
-// MOBILE NAV
-
-.dim {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 9998;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.header-mobile {
-    display: none;
-    right: 0;
-    opacity: 0;
-    position: absolute;
-    z-index: 9999;
-    width: 70vw;
-    max-width: 400px;
-    height: 100vh;
-    background-color: $colorWhite;
-    padding: 3%;
-    flex-direction: column;
-    row-gap: 4vh;
 
     h1 {
-        font-size: 1.2em;
-    }
-
-    ul {
-        @include FlexColumn(2vh);
-    }
-
-    li {
-        display: flex;
-    }
-
-    i {
-        font-size: .8em;
-        padding-right: .5em;
-    }
-
-    .btn-close {
-        position: absolute;
-        color: $colorLabel;
-        left: -20%;
-
-        i {
-            font-size: 1.5em;
-        }
+        font-size: 1.5em;
     }
 }
+
+.slides {
+    img {
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
 
 // FOOTER
 
 footer {
-    @include FlexRow();
+    flex-direction: row;
     justify-content: space-between;
     padding: 2% 3%;
-    background-color: $colorBlack;
-    color: $colorDeep;
 
     aside {
         @include FlexRow(2vw);
+
+        a:hover {
+            color: $colorLabel;
+        }
     }
 }
 
@@ -639,6 +657,10 @@ footer {
 
 main {
     @include FlexColumn(5vh);
+}
+
+.btn-filter {
+    display: none;
 }
 
 .filter {
@@ -680,18 +702,15 @@ main {
 }
 
 .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 0 4%;
     gap: 4vw;
 
     figure {
-        @include FlexColumn(2vh);
         width: 20vw;
 
         img {
-            transition: .6s;
+            width: 9vw;
+            height: 20vw;
+            transition: 1s;
         }
     }
 
@@ -711,14 +730,7 @@ main {
         }
     }
 
-    img {
-        width: 9vw;
-        height: 20vw;
-    }
-
     figcaption {
-        @include FlexColumn(1vh);
-
         h4 {
             font-size: 18px;
         }
@@ -726,12 +738,9 @@ main {
 }
 
 .pages {
-    @include FlexRow(3vw);
-    justify-content: center;
     padding: 5%;
     button {
         padding: 1% 2%;
-        border: 1px solid $colorDeep;
         cursor: pointer;
     }
     button:hover {
@@ -743,11 +752,10 @@ main {
 // PRODUCT DETAIL
 
 .product-detail {
-    padding: 5%;
     @include FlexColumn(8vh);
 
     figure {
-        @include FlexRow();
+        flex-direction: row;
         justify-content: space-between;
     }
 
@@ -756,90 +764,35 @@ main {
     }
 
     img {
-        width: 40%;
         height: 60vh;
     }
 
     figcaption {
-        @include FlexColumn();
         width: 45%;
-        padding: 4% 0;
-        justify-content: space-between;
-
-        &>div {
-            @include FlexColumn(2vh);
-        }
-
-        form {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            row-gap: 2vh;
-        }
 
         button, input {
             padding: 2%;
         }
 
-        label {
-            font-size: 14px;
-        }
-
-        .quantity {
-            @include FlexRow();
-            width: 70%;
-            justify-content: right;
-            background-color: $colorWhite;
-            border: 1px solid $colorLabel;
-
-            a {
-                width: 40px;
-                @include FlexCenter();
-                font-size: 11px;
-                color: $colorDeep;
-            }
-
-            input {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
         button {
-            width: 100%;
-            background-color: $colorDeep;
-            color: $colorWhite;
-            border-radius: 10vw;
-            font-weight: 600;
+            transition: .6s;
         }
 
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+        button:hover {
+            background-color: $colorBlack;
         }
-        
     }
 }
 
 .like-list {
-    @include FlexColumn(4vh);
-    width: 100%;
-    border-bottom: none;
-
-    h3 {
-        text-align: left;
-    }
 
     ul {
-        @include FlexRow(3vw);
-        width: 100%;
+        gap: 2vw;
+        justify-content: space-between;
     }
 
     li {
-        display: flex;
-        width: 100%;
+        width: 20vw;
     }
 
     .thumb {
@@ -847,7 +800,7 @@ main {
     }
 
     img {
-        height: 200px;
+        height: 300px;
     }
 }
 
@@ -858,132 +811,47 @@ main {
 
 section {
     aside {
-        border-bottom: 1px solid $colorLabel;
         width: 70%;
-        text-align: center;
         padding: 2% 0;
-    }
-
-    h3 {
-        font-family: $fontTitle;
-        color: $colorLabel;
-        letter-spacing: 3px;
     }
 }
 
 // BOOKING
 
 .booking {
-    @include FlexCenter();
-    flex-direction: column;
-    row-gap: 5vh;
-    padding: 5%;
-
     [type="submit"] {
-        background-color: $colorDeep;
-        color: white;
-        width: 40%;
-        align-self: center;
-        padding: 1.5%;
-        border-radius: 10vw;
-        font-size: 17px;
+        padding: 1.5% 8%;
+        font-size: 1.1em;
     }
 }
 
 .booking-form {
-    @include FlexColumn(5vh);
     width: 70%;
-
-    section {
-        @include FlexColumn(3vh);
-
-        div {
-        @include FlexRow(2vw);
-        }
-    }
 }
 
 .purpose {
-    label {
-        width: 100%;
-    }
     label:hover {
         cursor: pointer;
-    }
-    [type="checkbox"] {
-        display: none;
-    }
-    [type="checkbox"] + span {
-        @include FlexCenter();
-        height: 80px;
-        background-color: $colorThumb;
-        border: 1px solid $colorLabel;
-    }
-    [type="checkbox"]:checked + span {
-        background-color: $colorLabel;
     }
 }
 
 .appointment, .personalInfo {
     div > label {
-        width: 100%;
-        border-bottom: 1px solid $colorLabel;
-        @include FlexRow(2vw);
-        justify-content: space-between;
         padding: 1% 0;
-    }
-    input {
-        width: 100%;
-    }
-    &>label {
-        @include FlexColumn(1vh);
-    }
-    textarea {
-        border: 1px solid $colorLabel;
-        padding: 1%;
-        height: 100px;
-        resize: none;
     }
 }
 
 // ABOUT PAGE
 
 .about {
-    @include FlexCenter();
-    flex-direction: column;
-    row-gap: 5vh;
-    padding: 5%;
 
     figure {
-        @include FlexColumn(4vh);
         width: 70%;
     }
 
-    img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-    }
-
     figcaption {
-        @include FlexColumn(4vh);
-
         article {
-            display: grid;
             grid-template-columns: auto auto auto;
-            border-top: 1px solid $colorThumb;
-            padding-top: 2%;
-        }
-        
-        aside {
-            width: 100%;
-            border-bottom: none;
-            text-align: left;
-        }
-
-        h5 {
-            color: $colorDeep;
-            padding-bottom: .5em;
         }
     }
 }

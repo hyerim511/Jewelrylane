@@ -12,7 +12,7 @@
       </li>
     </ul>
     <router-link to="/"><h1>JEWELRYLANE</h1></router-link>    
-    <ul>
+    <ul class="nav-icon">
       <li>
         <router-link to="/booking">
           <i class="fa-solid fa-calendar"></i>
@@ -24,13 +24,13 @@
         </router-link>
       </li>
     </ul>
-      <a @click="mobileNav">
+      <a class="btn-nav" @click="mobileNav">
         <i class="fa-solid fa-bars"></i>
       </a>
   </nav>
 
   <!-- MOBILE -->
-  <div class="" :class="{ dim: mobileNavValue }"></div>
+  <div class="" :class="{ dim: mobileNavValue }" @click="mobileNavClose"></div>
   <nav class="header-mobile " :class="{ display: mobileNavValue }">
     <router-link to="/"><h1>JEWELRYLANE</h1></router-link> 
     <ul>

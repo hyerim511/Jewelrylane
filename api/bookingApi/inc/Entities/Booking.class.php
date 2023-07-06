@@ -1,13 +1,21 @@
 <?php
 
 class Booking {
+    private int $id;
     private string $name;
     private string $email;
     private string $phone;
-    private string $date;
-    private string $time;
+    private string $regDate;
+    private string $regTime;
     private string $purpose;
     private string $message;
+
+    public function getId() {
+        return $this->id;
+    }
+    public function setId($id) {
+        $this->id = $id; 
+    }
 
     public function getName() {
         return $this->name;
@@ -31,17 +39,17 @@ class Booking {
     }
 
     public function getDate() {
-        return $this->date;
+        return $this->regDate;
     }
-    public function setDate($date) {
-        $this->date = $date; 
+    public function setDate($regDate) {
+        $this->regDate = $regDate; 
     }
 
     public function getTime() {
-        return $this->time;
+        return $this->regTime;
     }
-    public function setTime($time) {
-        $this->time = $time; 
+    public function setTime($regTime) {
+        $this->regTime = $regTime; 
     }
 
     public function getPurpose() {

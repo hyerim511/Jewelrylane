@@ -7,6 +7,8 @@ require_once("./inc/Utilities/JewelryConverter.class.php");
 require_once("./inc/Utilities/DAO/JewelryDAO.class.php");
 
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET,POST,HEAD,OPTIONS,PUT,DELETE ");
+header('Content-Type: application/json; charset=utf-8');
 
 $method = $_SERVER["REQUEST_METHOD"];
 

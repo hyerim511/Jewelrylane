@@ -18,7 +18,7 @@ class BookingDAO {
     }
 
     public static function insertBooking(Booking $newBooking) {
-        $sql = "INSERT INTO Booking (name,email,phone,date,time,purpose,message) VALUES (:name,:email,:phone,:date,:time,:purpose,:message)";
+        $sql = "INSERT INTO Booking (name,email,phone,regDate,regTime,purpose,message) VALUES (:name,:email,:phone,:date,:time,:purpose,:message)";
 
         self::$db->query($sql);
         self::$db->bind(":name",$newBook->getName());

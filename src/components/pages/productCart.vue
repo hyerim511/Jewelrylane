@@ -9,7 +9,7 @@
             </div>
         </div>
         
-        <!-- <section>
+        <section>
             <article>
                 <figure>
                     <img :alt="detailItem.title" :src="detailItem.image" />
@@ -123,12 +123,12 @@
                 <hr />
                 <div class="row">
                     <div class="u-pull-right">
-                        <h5>Total: <span>{{ total | currency }}</span></h5>
+                        <!-- <h5>Total: <span>{{ total | currency }}</span></h5> -->
                         <button>Looks Good</button>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div> 
     </div>
 </template>
 
@@ -139,7 +139,6 @@
             return {
                 cart: [],
                 items: [],
-                // shop: shop,
                 showCart: false,
                 verified: false,
                 quantity: 1

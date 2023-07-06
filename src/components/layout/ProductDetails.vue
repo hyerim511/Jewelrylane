@@ -10,7 +10,7 @@
                     <h2>{{ detailItem.title }}</h2>
                     <p> $ {{ detailItem.price }}</p>
                 </div>
-                <form>
+                <form v-on:submit.prevent="addToCart(detailItem.title)">
                     <label for="qty">Quantity</label>
                     <div class="quantity">
                         <a class="btn-minus" @click="qty--">
@@ -21,16 +21,16 @@
                             <i class="fa-solid fa-plus"></i>
                         </a>
                     </div>
-                    <!-- <button type="submit" @click="addToCart(detailItem)">
+                    <button type="submit">
                         Add to cart
-                    </button> -->
+                    </button>
 
-                    <router-link to="/cart">
+                    <!-- <router-link to="/cart">
                         <button type="submit" @click="addToCart(product)">
                             Add to cart
                         </button>
 
-                    </router-link>
+                    </router-link> -->
                 </form>
             </figcaption>
         </figure>
@@ -46,10 +46,10 @@
         name: 'ProductDetails',
         products: [],
         product: [],
-        // cart: [],
+        cart: [],
         data(){
             return {
-                carts: [],
+                // carts: [],
                 Pic: [
                     {name: 'R1', File: 'https://int.cartier.com/content/dam/rcq/car/10/58/52/1/1058521.png'},
                     {name: 'R2', File: 'https://int.cartier.com/content/dam/rcq/car/13/61/33/2/1361332.png'},

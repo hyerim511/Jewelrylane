@@ -380,10 +380,10 @@ h1 {
     width: 100%;
     text-align: center;
   }
-  .purpose [type=checkbox] {
+  .purpose [type=radio] {
     display: none;
   }
-  .purpose [type=checkbox] + span {
+  .purpose [type=radio] + span {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -392,7 +392,7 @@ h1 {
     border: 1px solid #C8BDAB;
     color: #726B64;
   }
-  .purpose [type=checkbox]:checked + span {
+  .purpose [type=radio]:checked + span {
     background-color: #C8BDAB;
     color: #1F1B18;
   }

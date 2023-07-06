@@ -450,17 +450,17 @@ h1 {
             width: 100%;
             text-align: center;
         }
-        [type="checkbox"] {
+        [type="radio"] {
             display: none;
         }
-        [type="checkbox"] + span {
+        [type="radio"] + span {
             @include FlexCenter();
             height: 80px;
             background-color: $colorThumb;
             border: 1px solid $colorLabel;
             color: $colorDeep;
         }
-        [type="checkbox"]:checked + span {
+        [type="radio"]:checked + span {
             background-color: $colorLabel;
             color: $colorBlack;
         }

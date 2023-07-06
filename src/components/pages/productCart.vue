@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <div class="header">
             <h2>Your Cart</h2>
@@ -123,13 +124,13 @@
                 <hr />
                 <div class="row">
                     <div class="u-pull-right">
-                        <!-- <h5>Total: <span>{{ total | currency }}</span></h5> -->
                         <button>Looks Good</button>
                     </div>
                 </div>
             </div>
         </div> 
-    </div>
+    </div> 
+     -->
 </template>
 
 <script>

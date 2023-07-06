@@ -533,6 +533,77 @@ h1 {
             }
         }
     }
+
+
+    // CART
+
+    .cart {
+        background-color: $colorThumb;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left:0;
+        @include FlexColumn(8vh);
+        align-items: center;
+
+        aside {
+            padding-top: 20%;
+            width: 90%
+        }
+
+        form {
+            width: 90%;
+            @include FlexColumn(2vh);
+        }
+
+        figure {
+            @include FlexRow(5vw);
+            background-color: $colorBg;
+            padding: 8%;
+        }
+
+        img {
+            width: 30%;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+
+        .total {
+            @include FlexRow();
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                font-size: 1.2em;
+                font-weight: 700;
+            }
+
+            span {
+                font-weight: 400;
+            }
+
+            button {
+                padding: 3% 8%;
+                background-color: $colorDeep;
+                color: white;
+                border-radius: 10vw;
+            }
+        }
+
+        .btn-close-cart {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            color: $colorDeep;
+            z-index: 9999;
+            font-size: 1.7em;
+        }
+    }
 }
 
 
@@ -567,7 +638,6 @@ h1 {
         }
     }
     
-    
     // 
     // OTHER PAGES
     
@@ -590,6 +660,17 @@ h1 {
         figcaption {
             article {
                 grid-template-columns: auto auto;
+            }
+        }
+    }
+
+    // CART
+
+    .cart {
+
+        .total {
+            button {
+                padding: 2% 8%;
             }
         }
     }
@@ -855,4 +936,39 @@ section {
         }
     }
 }
+
+// CART
+
+.cart {
+
+    aside {
+        padding-top: 10%;
+        width: 70%;
+    }
+
+    form {
+        width: 70%;
+    }
+
+    figure {
+        @include FlexRow(4vw);
+        padding: 3%;
+    }
+
+    img {
+        width: 24%;
+    }
+
+    .total {
+
+        p {
+            font-size: 1.5em;
+        }
+
+        button {
+            padding: 1.5% 8%;
+        }
+    }
+}
+
 }

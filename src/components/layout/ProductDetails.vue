@@ -10,7 +10,7 @@
                     <h2>{{ detailItem.title }}</h2>
                     <p> $ {{ detailItem.price }}</p>
                 </div>
-                <form v-on:submit.prevent="addToCart(detailItem.title)">
+                <form v-on:submit.prevent="addToCart(detailItem.title,detailItem.price,detailItem.image,qty)">
                     <label for="qty">Quantity</label>
                     <div class="quantity">
                         <a class="btn-minus" @click="qty--">
@@ -36,20 +36,34 @@
         </figure>
         <YouMayLike :detailItem="Pic"/>
     </section>
+    <div v-if="this.cartDisplay">
+        <CartTest :cartItem="cart"/>
+    </div>
+        
 </template>
 
 <script>
     import {ref} from 'vue';
     import YouMayLike from './YouMayLike.vue';
+    import CartTest from './CartTest.vue';
+    // import ProductCart from './../pages.ProductCart.vue';
     export default {
-    components: { YouMayLike },
+    components: { 
+        YouMayLike,
+        // ProductCart,
+        CartTest
+    },
         name: 'ProductDetails',
-        products: [],
-        product: [],
-        cart: [],
+        
         data(){
             return {
-                // carts: [],
+                cartDisplay: false,
+        cart: {
+            itemTitle: '',
+            itemPrice: '',
+            itemPic: '',
+            itemQty: ''
+        },
                 Pic: [
                     {name: 'R1', File: 'https://int.cartier.com/content/dam/rcq/car/10/58/52/1/1058521.png'},
                     {name: 'R2', File: 'https://int.cartier.com/content/dam/rcq/car/13/61/33/2/1361332.png'},
@@ -72,16 +86,10 @@
 
         },
         methods: {
-            addToCart(product){
-                // this.$store.dispatch('addProductToCart', {
-                //     product: this.product,
-                //     quantity: 1
-                // })
-                // this.carts.push(product);
-                console.log(product);
-            }
+            addToCart(title, price, image, qty){
+                this.cartDisplay = true;
+                this.cart = {title, price, image, qty}
         }
-        
     }
-        
+    }
 </script>

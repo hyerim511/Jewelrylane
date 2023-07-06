@@ -18,11 +18,11 @@
           <i class="fa-solid fa-calendar"></i>
         </router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link to="/cart">
           <i class="fa-solid fa-cart-shopping"></i>
         </router-link>
-      </li>
+      </li> -->
     </ul>
       <a class="btn-nav" @click="mobileNav">
         <i class="fa-solid fa-bars"></i>
@@ -51,12 +51,12 @@
           Booking
         </router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link to="/cart">
           <i class="fa-solid fa-cart-shopping"></i>
           Cart
         </router-link>
-      </li>
+      </li> -->
     </ul>
     <div class="btn-close" @click="mobileNavClose">
       <i class="fa-solid fa-xmark"></i>

@@ -21,7 +21,10 @@
         </router-link>
       </li>
       <li>
-        <router-link class="nav-icon" to="/ProductCart">
+        <!-- <div class="fa-solid fa-cart-shopping">
+          {{cart.length}}in cart
+        </div> -->
+        <router-link class="nav-icon" to="/cart">
           <i class="fa-solid fa-cart-shopping"></i>
         </router-link>
       </li>

@@ -12,21 +12,55 @@
         <!-- <section>
             <article>
                 <figure>
-                    <img src="" alt="">
+                    <img :alt="detailItem.title" :src="detailItem.image" />
                     <figcaption>
                         <section>
-                            <h5>
-                                {{ jewelry.category }}
-                            </h5>
-                            <h3>
-                                {{ jewelry.name }}
-                            </h3>
+                            <span class="label">{{ detailItem.category }}</span>
+                            <h2>{{ detailItem.title }}</h2>
+                            <p> $ {{ detailItem.price }}</p>
                         </section>
                         <section>
                             <aside>
                                 <div>
                                     <h4>
-                                        Quantity
+                                        
+                                        <div class="cart" v-show="showCart">
+                                            <div v-show="items.length > 0">
+                                            <ul>
+                                                <li v-for="item in items" transition="fade" :key="item">
+                                                <p><strong>{{ item.quantity }}</strong> - {{ item.name }} <i class="fa fa-trash" @click="removeFromCart(item)"></i></p>
+                                                </li>
+                                            </ul>
+                                            <div><button @click="verified = true, showCart = false">Check out</button></div>
+                                            </div>
+                                            <div v-show="items.length === 0">
+                                            <p>Your cart is empty!</p>
+                                            </div>
+                                        </div>
+                                        <div class="container">
+                                            <div class="shop" v-show="!verified">
+                                            <h3>In Cart</h3>
+                                            <ul>
+                                                <li v-for="item in shop" :key="item">
+                                                <div>
+                                                    <h5>{{ item.name }}</h5>
+                                                    <p>${{ item.price }}</p>
+                                                    <button @click="addToCart(item)">Add to cart</button>
+                                                </div>
+                                                </li>
+                                            </ul>
+                                            </div>
+                                            <div class="checkout" v-show="verified">
+                                            <h3>Your Cart</h3>
+                                            <h5 v-for="item in items" :key="item"><strong>{{ item.quantity }}</strong> - {{ item.name }}<span>${{ item.price * item.quantity }}</span></h5>
+                                            <hr />
+                                            <div class="row">
+                                                <div class="u-pull-right">
+                                                <button>Looks Good</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
                                     </h4>
                                     
                                 </div>
@@ -54,7 +88,7 @@
                     <button type="submit">Check out</button>
                 </aside>
             </article>
-        </section> -->
+        </section>
         <div class="cart" v-show="showCart">
             <div v-show="items.length > 0">
                 <ul>
@@ -89,12 +123,12 @@
                 <hr />
                 <div class="row">
                     <div class="u-pull-right">
-                        <!-- <h5>Total: <span>{{ total | currency }}</span></h5> -->
+                        <h5>Total: <span>{{ total | currency }}</span></h5>
                         <button>Looks Good</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -103,44 +137,13 @@
         name: 'ProductCart',
         data(){
             return {
+                cart: [],
                 items: [],
                 // shop: shop,
                 showCart: false,
                 verified: false,
                 quantity: 1
 
-            }
-        },
-        setup(){
-            const shop = [
-                {
-                    name: "One-Punch Man, Vol. 5",
-                    price: 10.02,
-                    quantity: 0
-                },
-                {
-                    name: "Gantz Omnibus, Vol. 1",
-                    price: 22.98,
-                    quantity: 0
-                },
-                {
-                    name: "Dragon Ball Freeza Arc, Vol. 1",
-                    price: 15.98,
-                    quantity: 0
-                },
-                {
-                    name: "Uzumaki: Spiral into Horror, Vol. 1",
-                    price: 4.84,
-                    quantity: 0
-                },
-                {
-                    name: "Superman: Red Son (New Edition)",
-                    price: 10.93,
-                    quantity: 0
-                }
-            ]
-            return {
-                shop
             }
         },
         computed: {

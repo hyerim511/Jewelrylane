@@ -1,0 +1,19 @@
+.btn-add-to-cart {
+    padding: 5px;
+    background-color: deepskyblue;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
+.btn-add-to-cart:hover {
+    background-color: lightgrey;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.from-control {
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 0.5rem;
+}

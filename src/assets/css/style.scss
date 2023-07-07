@@ -1,0 +1,974 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Raleway:wght@400;600;700&display=swap');
+
+// MIXIN
+
+@mixin FlexRow($colGap: 0vh) {
+    display: flex;
+    column-gap: $colGap;
+}
+ 
+@mixin FlexColumn($rowGap: 0vh) {
+    display: flex;
+    flex-direction: column;
+    row-gap: $rowGap;
+}
+
+@mixin FlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$fontTitle: 'Julius Sans One', sans-serif;
+$fontBody: 'Raleway', sans-serif;
+
+$colorWhite: #FCFAF9;
+$colorBg: #F5F1EE;
+$colorThumb: #EDE8E1;
+$colorLabel: #C8BDAB;
+$colorDeep: #726B64;
+$colorBlack: #1F1B18;
+
+
+// COMMON VALUE
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $fontBody;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: $colorBg;
+    color: $colorBlack;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+input, textarea, button {
+    background-color: transparent;
+    border: 0 none;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+.thumb {
+    @include FlexCenter();
+    background-color: $colorThumb;
+    border: 1px solid $colorLabel;
+}
+
+.label {
+    background-color: $colorLabel;
+    width: fit-content;
+    padding: .5%;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $colorBg;
+}
+
+h1 {
+    font-family: $fontTitle;
+    letter-spacing: 2px;
+}
+
+
+// MEDIA QUERY
+// MOBILE
+
+@media (min-width: 200px) {
+    
+    // HEADER
+    
+    .header {
+        @include FlexRow();
+        justify-content: space-between;
+        align-items: center;
+        padding: 4%;
+    
+        ul {
+            display: none;
+        }
+
+        h1 {
+            font-size: 1.3em;
+        }
+    }
+
+    .slides {
+        img {
+            height: 40vh;
+            object-fit: cover;
+        }
+    }
+    
+    // MOBILE NAV
+    
+    .dim {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9998;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .header-mobile {
+        display: none;
+        top: 0;
+        opacity: 0;
+        position: absolute;
+        z-index: 9999;
+        width: 80%;
+        height: fit-content;
+        background-color: $colorBg;
+        padding: 20% 10%;
+        flex-direction: column;
+        row-gap: 8vh;
+        align-items: center;
+    
+        ul {
+            @include FlexColumn(5vh);
+        }
+    
+        li {
+            display: flex;
+            justify-content: center;
+        }
+    
+        i {
+            font-size: .8em;
+            padding-right: .5em;
+        }
+    
+        .btn-close {
+            position: absolute;
+            color: $colorLabel;
+            right: 3%;
+            top: 5%;
+    
+            i {
+                font-size: 1.5em;
+            }
+        }
+    }
+    
+    // FOOTER
+    
+    footer {
+        @include FlexColumn(2vh);
+        align-items: center;
+        padding: 10%;
+        background-color: $colorBlack;
+        color: $colorDeep;
+    
+        aside {
+            @include FlexRow(5vw);
+        }
+    }
+    
+    
+    // MAIN LIST
+    
+    main {
+        @include FlexColumn(3vh);
+    }
+
+    .filter {
+        display: none;
+    }
+
+    .btn-filter {
+        align-self: flex-end;
+        padding-right: 10%;
+    }
+    
+    .filter-mobile {
+        display: none;
+        flex-direction: column;
+        row-gap: 2vh;
+        padding: 0 5%;
+    
+        ul {
+            @include FlexRow();
+            // width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        li {
+            @include FlexRow();
+            color: $colorDeep;
+    
+            a {
+                padding: 10%;
+            }
+        }
+
+        .active {
+            color: $colorBlack;
+        }
+
+        article {
+            @include FlexRow();
+            justify-content: space-between;
+            align-items: center;
+    
+            form {
+                border-bottom: 1px solid $colorLabel;
+            }
+    
+            input {
+                width: 60vw;
+                padding: 2%;
+            }
+        }
+    }
+    
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 0 4%;
+        row-gap: 4vh;
+    
+        figure {
+            @include FlexColumn(2vh);
+            width: 40vw;
+
+            img {
+                width: 20vw;
+                height: 40vw;
+            }
+        }
+    
+        figcaption {
+            @include FlexColumn(1vh);
+    
+            h4 {
+                font-size: 16px;
+            }
+        }
+    }
+    
+    .pages {
+        @include FlexRow();
+        justify-content: center;
+        padding: 8%;
+        button {
+            padding: 2% 10%;
+            border: 1px solid $colorLabel;
+            color: $colorDeep;
+        }
+    }
+    
+    
+    // PRODUCT DETAIL
+    
+    .product-detail {
+        padding: 5%;
+        @include FlexColumn(8vh);
+    
+        figure {
+            @include FlexColumn();
+        }
+    
+        .thumb {
+            width: 100%;
+        }
+    
+        img {
+            width: 40%;
+            height: 40vh;
+        }
+    
+        figcaption {
+            @include FlexColumn(6vh);
+            width: 100%;
+            padding: 4% 0;
+            justify-content: space-between;
+    
+            &>div {
+                @include FlexColumn(2vh);
+            }
+    
+            form {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                row-gap: 2vh;
+            }
+    
+            button, input {
+                padding: 3%;
+            }
+    
+            label {
+                font-size: 14px;
+            }
+    
+            .quantity {
+                @include FlexRow();
+                width: 70%;
+                justify-content: right;
+                background-color: $colorWhite;
+                border: 1px solid $colorLabel;
+    
+                a {
+                    width: 40px;
+                    @include FlexCenter();
+                    font-size: 11px;
+                    color: $colorDeep;
+                }
+    
+                input {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+    
+            button {
+                width: 100%;
+                background-color: $colorDeep;
+                color: $colorWhite;
+                border-radius: 10vw;
+                font-weight: 600;
+            }
+    
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    }
+    
+    .like-list {
+        @include FlexColumn(4vh);
+        width: 100%;
+        border-bottom: none;
+    
+        h3 {
+            text-align: left;
+        }
+    
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            gap: 4vw;
+        }
+    
+        li {
+            display: flex;
+            width: 43vw;
+        }
+
+        figure {
+            width: 100%;
+        }
+    
+        .thumb {
+            width: 100%;
+        }
+    
+        img {
+            height: 200px;
+        }
+    }
+    
+    
+    // 
+    // OTHER PAGES
+    
+    
+    section {
+        aside {
+            border-bottom: 1px solid $colorLabel;
+            width: 100%;
+            text-align: center;
+            padding: 5% 0;
+        }
+    
+        h3 {
+            font-family: $fontTitle;
+            color: $colorLabel;
+            letter-spacing: 3px;
+        }
+    }
+    
+    // BOOKING
+    
+    .booking {
+        @include FlexCenter();
+        flex-direction: column;
+        row-gap: 5vh;
+        padding: 5%;
+    
+        [type="submit"] {
+            background-color: $colorDeep;
+            color: white;
+            align-self: center;
+            padding: 3% 8%;
+            border-radius: 10vw;
+        }
+    }
+    
+    .booking-form {
+        @include FlexColumn(5vh);
+    
+        section {
+            @include FlexColumn(3vh);
+    
+            div {
+            @include FlexRow(2vw);
+            }
+        }
+    }
+    
+    .purpose {
+        label {
+            width: 100%;
+            text-align: center;
+        }
+        [type="radio"] {
+            display: none;
+        }
+        [type="radio"] + span {
+            @include FlexCenter();
+            height: 80px;
+            background-color: $colorThumb;
+            border: 1px solid $colorLabel;
+            color: $colorDeep;
+        }
+        [type="radio"]:checked + span {
+            background-color: $colorLabel;
+            color: $colorBlack;
+        }
+    }
+    
+    .appointment, .personalInfo {
+
+        div {
+            @include FlexColumn(2vh);
+        }
+
+        div > label {
+            width: 100%;
+            border-bottom: 1px solid $colorLabel;
+            @include FlexRow(2vw);
+            justify-content: space-between;
+            padding: 3% 0;
+        }
+        input {
+            width: 100%;
+        }
+        &>label {
+            @include FlexColumn(1vh);
+        }
+        textarea {
+            border: 1px solid $colorLabel;
+            padding: 1%;
+            height: 100px;
+            resize: none;
+        }
+    }
+    
+    // ABOUT PAGE
+    
+    .about {
+        @include FlexCenter();
+        flex-direction: column;
+        row-gap: 5vh;
+        padding: 5%;
+    
+        figure {
+            @include FlexColumn(4vh);
+        }
+    
+        img {
+            width: 100%;
+            height: 40vh;
+            object-fit: cover;
+        }
+    
+        figcaption {
+            @include FlexColumn(4vh);
+    
+            article {
+                display: grid;
+                grid-template-columns: auto;
+                border-top: 1px solid $colorThumb;
+                padding-top: 2%;
+            }
+            
+            aside {
+                width: 100%;
+                border-bottom: none;
+                text-align: left;
+            }
+    
+            h5 {
+                color: $colorDeep;
+                padding-bottom: .5em;
+            }
+        }
+    }
+
+
+    // CART
+
+    .cart {
+        background-color: $colorThumb;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left:0;
+        @include FlexColumn(8vh);
+        align-items: center;
+
+        aside {
+            padding-top: 20%;
+            width: 90%
+        }
+
+        form {
+            width: 90%;
+            @include FlexColumn(2vh);
+        }
+
+        figure {
+            @include FlexRow(5vw);
+            background-color: $colorBg;
+            padding: 8%;
+        }
+
+        img {
+            width: 30%;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+
+        .total {
+            @include FlexRow();
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                font-size: 1.2em;
+                font-weight: 700;
+            }
+
+            span {
+                font-weight: 400;
+            }
+
+            button {
+                padding: 3% 8%;
+                background-color: $colorDeep;
+                color: white;
+                border-radius: 10vw;
+            }
+        }
+
+        .btn-close-cart {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            color: $colorDeep;
+            z-index: 9999;
+            font-size: 1.7em;
+        }
+    }
+}
+
+
+// MEDIA QUERY
+// TABLET
+
+@media (min-width: 700px) {
+    
+    // FOOTER
+    
+    footer {
+        padding: 5%;
+    }
+    
+    
+    // MAIN LIST
+
+    .btn-filter {
+        align-self: flex-end;
+        padding-right: 10%;
+    }
+    
+    .filter-mobile {
+        padding: 0 10%;
+    }
+    
+    .content {   
+        figcaption {    
+            h4 {
+                font-size: 18px;
+            }
+        }
+    }
+    
+    // 
+    // OTHER PAGES
+    
+    
+    // BOOKING
+    
+    .booking-form {
+        width: 100%;
+    }
+    
+    .appointment, .personalInfo {
+        div {
+            flex-direction: row;
+        }
+    }
+    
+    // ABOUT PAGE
+    
+    .about {
+        figcaption {
+            article {
+                grid-template-columns: auto auto;
+            }
+        }
+    }
+
+    // CART
+
+    .cart {
+
+        .total {
+            button {
+                padding: 2% 8%;
+            }
+        }
+    }
+}
+
+
+// MEDIA QUERY
+// DESKTOP
+
+@media (min-width: 1000px) {
+    
+// HEADER
+
+.btn-nav {
+    display: none;
+}
+
+.header {
+    padding: 2% 4%;
+
+    ul {
+        @include FlexRow(2vw);
+        width: 20%;
+    }
+
+    .nav-icon {
+        justify-content: right;
+    }
+
+    li {
+        @include FlexRow();
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+.slides {
+    img {
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+
+// FOOTER
+
+footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2% 3%;
+
+    aside {
+        @include FlexRow(2vw);
+
+        a:hover {
+            color: $colorLabel;
+        }
+    }
+}
+
+
+// MAIN LIST
+
+main {
+    @include FlexColumn(5vh);
+}
+
+.btn-filter {
+    display: none;
+}
+
+.filter {
+    @include FlexRow();
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+
+    ul {
+        @include FlexRow(2vw);
+    }
+
+    li {
+        @include FlexRow();
+        width: 6vw;
+
+        a {
+            padding: 10%;
+        }
+    }
+
+    .active {
+        border-bottom: 1px solid $colorDeep;
+    }
+
+    article {
+        @include FlexRow(3vw);
+
+        form {
+            border-bottom: 1px solid $colorLabel;
+        }
+
+        input {
+            width: 240px;
+            padding: 2%;
+        }
+
+    }
+}
+
+.content {
+    gap: 4vw;
+
+    figure {
+        width: 20vw;
+
+        img {
+            width: 9vw;
+            height: 20vw;
+            transition: 1s;
+        }
+    }
+
+    figure:hover {
+        outline: 20px solid $colorWhite;
+        background: #FCFAF9;
+        box-shadow: 0px 10px 20px -4px rgba(0, 0, 0, 0.5);
+
+        .thumb {
+            background-color: transparent;
+            border: 0;
+        }
+
+        img {
+            width: 12vw;
+            transform: rotate(15deg);
+        }
+    }
+
+    figcaption {
+        h4 {
+            font-size: 18px;
+        }
+    }
+}
+
+.pages {
+    padding: 5%;
+    button {
+        padding: 1% 2%;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: $colorThumb;
+    }
+}
+
+
+// PRODUCT DETAIL
+
+.product-detail {
+    @include FlexColumn(8vh);
+
+    figure {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .thumb {
+        width: 50%;
+    }
+
+    img {
+        height: 60vh;
+    }
+
+    figcaption {
+        width: 45%;
+
+        button, input {
+            padding: 2%;
+        }
+
+        button {
+            transition: .6s;
+        }
+
+        button:hover {
+            background-color: $colorBlack;
+        }
+    }
+}
+
+.like-list {
+
+    ul {
+        gap: 2vw;
+        justify-content: space-between;
+    }
+
+    li {
+        width: 20vw;
+    }
+
+    .thumb {
+        width: 20vw;
+    }
+
+    img {
+        height: 300px;
+    }
+}
+
+
+// 
+// OTHER PAGES
+
+
+section {
+    aside {
+        width: 70%;
+        padding: 2% 0;
+    }
+}
+
+// BOOKING
+
+.booking {
+    [type="submit"] {
+        padding: 1.5% 8%;
+        font-size: 1.1em;
+    }
+}
+
+.booking-form {
+    width: 70%;
+}
+
+.purpose {
+    label:hover {
+        cursor: pointer;
+    }
+}
+
+.appointment, .personalInfo {
+    div > label {
+        padding: 1% 0;
+    }
+}
+
+// ABOUT PAGE
+
+.about {
+
+    figure {
+        width: 70%;
+    }
+
+    figcaption {
+        article {
+            grid-template-columns: auto auto auto;
+        }
+    }
+}
+
+// CART
+
+.cart {
+
+    aside {
+        padding-top: 10%;
+        width: 70%;
+    }
+
+    form {
+        width: 70%;
+    }
+
+    figure {
+        @include FlexRow(4vw);
+        padding: 3%;
+    }
+
+    img {
+        width: 24%;
+    }
+
+    .total {
+
+        p {
+            font-size: 1.5em;
+        }
+
+        button {
+            padding: 1.5% 8%;
+        }
+    }
+}
+
+}

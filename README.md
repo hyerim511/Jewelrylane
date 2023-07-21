@@ -20,7 +20,7 @@ The JewelryLane website will enable customers to browse, explore, and purchase s
 
 ### Product Showcase with Api
 The website allows users to browse and view various jewelry products, including images, descriptions and pricing. It showcases the available designs, styles, and materials used in the jewelry pieces.
-![Reference database](https://www.kaggle.com/code/zaynhaider/cartier-jewelry-classification-with-xgb-classifier)
+The database based on [Cartier Jewelry](https://www.kaggle.com/code/zaynhaider/cartier-jewelry-classification-with-xgb-classifier)
 
 ### Product Searching, Sorting and Filtering
 To help customers find specific jewelry items, the website may have search functionality and filtering options based on categories such as type (necklaces, earrings, rings), materials (gold, silver, gemstones), price range, and more.
